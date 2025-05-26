@@ -1,0 +1,21 @@
+<div class="split" style="--stack-space: 1.8em">
+  <h2>Nyhetsbrev</h2>
+
+  <a href="/feed.xml" aria-label="Webbflöde">
+    <svg aria-hidden="true" focusable="false" class="search-icon" fill="none" stroke="currentColor" stroke-width="3"
+      width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle fill="currentColor" cx="4" cy="20" r="1" />
+      <path d="M2 12A10 10 0 0 1 12 22" />
+      <path d="M2 6A16 16 0 0 1 18 22" />
+    </svg>
+  </a>
+</div>
+{%- for letter in collections.newsletter %}
+<article>
+  <h3>
+    <a href="{{letter.url}}">
+      {{ letter.data.title }}
+    </a>
+  </h3>
+</article>
+{%- endfor %}

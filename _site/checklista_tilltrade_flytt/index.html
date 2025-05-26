@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta theme-color="#ffa348">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Bostadsrättsföreningen Urbilden består av två charmiga fastigheter som är byggda i slutet av 30-talet i norra Sofielund. Här hittar du en underbar innergård med lummigt gröna ytor – vår egen oas mitt i staden.">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Checklista tillträde och flytt</title>
+    <script type="module">// Thank you to https://github.com/daviddarnes/heading-anchors
+// Thank you to https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
+
+let globalInstanceIndex = 0;
+
+class HeadingAnchors extends HTMLElement {
+	static register(tagName) {
+		if ("customElements" in window) {
+			customElements.define(tagName || "heading-anchors", HeadingAnchors);
+		}
+	}
+
+	static attributes = {
+		exclude: "data-ha-exclude",
+		prefix: "prefix",
+		content: "content",
+	}
+
+	static classes = {
+		anchor: "ha",
+		placeholder: "ha-placeholder",
+		srOnly: "ha-visualhide",
+	}
+
+	static defaultSelector = "h2,h3,h4,h5,h6";
+
+	static css = `
+.${HeadingAnchors.classes.srOnly} {
+	clip: rect(0 0 0 0);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+.${HeadingAnchors.classes.anchor} {
+	position: absolute;
+	left: var(--ha_offsetx);
+	top: var(--ha_offsety);
+	text-decoration: none;
+	opacity: 0;
+}
+.${HeadingAnchors.classes.placeholder} {
+	opacity: .3;
+}
+.${HeadingAnchors.classes.anchor}:is(:focus-within, :hover) {
+	opacity: 1;
+}
+.${HeadingAnchors.classes.anchor},
+.${HeadingAnchors.classes.placeholder} {
+	display: inline-block;
+	padding: 0 .25em;
+
+	/* Disable selection of visually hidden label */
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+@supports (anchor-name: none) {
+	.${HeadingAnchors.classes.anchor} {
+		position: absolute;
+		left: anchor(left);
+		top: anchor(top);
+	}
+}`;
+
+	get supports() {
+		return "replaceSync" in CSSStyleSheet.prototype;
+	}
+
+	get supportsAnchorPosition() {
+		return CSS.supports("anchor-name: none");
+	}
+
+	constructor() {
+		super();
+
+		if(!this.supports) {
+			return;
+		}
+
+		let sheet = new CSSStyleSheet();
+		sheet.replaceSync(HeadingAnchors.css);
+		document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+
+		this.headingStyles = {};
+		this.instanceIndex = globalInstanceIndex++;
+	}
+
+	connectedCallback() {
+		if (!this.supports) {
+			return;
+		}
+
+		this.headings.forEach((heading, index) => {
+			if(!heading.hasAttribute(HeadingAnchors.attributes.exclude)) {
+				let anchor = this.getAnchorElement(heading);
+				let placeholder = this.getPlaceholderElement();
+
+				// Prefers anchor position approach for better accessibility
+				// https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
+				if(this.supportsAnchorPosition) {
+					let anchorName = `--ha_${this.instanceIndex}_${index}`;
+					placeholder.style.setProperty("anchor-name", anchorName);
+					anchor.style.positionAnchor = anchorName;
+				}
+
+				heading.appendChild(placeholder);
+				heading.after(anchor);
+			}
+		});
+	}
+
+	// Polyfill-only
+	positionAnchorFromPlaceholder(placeholder) {
+		if(!placeholder) {
+			return;
+		}
+
+		let heading = placeholder.closest("h1,h2,h3,h4,h5,h6");
+		if(!heading.nextElementSibling) {
+			return;
+		}
+
+		// TODO next element could be more defensive
+		this.positionAnchor(heading.nextElementSibling);
+	}
+
+	// Polyfill-only
+	positionAnchor(anchor) {
+		if(!anchor || !anchor.previousElementSibling) {
+			return;
+		}
+
+		// TODO previous element could be more defensive
+		let heading = anchor.previousElementSibling;
+		this.setFontProp(heading, anchor);
+
+		if(this.supportsAnchorPosition) {
+			// quit early
+			return;
+		}
+
+		let placeholder = heading.querySelector(`.${HeadingAnchors.classes.placeholder}`);
+		if(placeholder) {
+			anchor.style.setProperty("--ha_offsetx", `${placeholder.offsetLeft}px`);
+			anchor.style.setProperty("--ha_offsety", `${placeholder.offsetTop}px`);
+		}
+	}
+
+	setFontProp(heading, anchor) {
+		let placeholder = heading.querySelector(`.${HeadingAnchors.classes.placeholder}`);
+		if(placeholder) {
+			let style = getComputedStyle(placeholder);
+			let props = ["font-weight", "font-size", "line-height", "font-family"];
+			let font = props.map(name => style.getPropertyValue(name));
+			anchor.style.setProperty("font", `${font[0]} ${font[1]}/${font[2]} ${font[3]}`);
+		}
+	}
+
+	getAccessibleTextPrefix() {
+		// Useful for i18n
+		return this.getAttribute(HeadingAnchors.attributes.prefix) || "Jump to section titled";
+	}
+
+	getContent() {
+		if(this.hasAttribute(HeadingAnchors.attributes.content)) {
+			return this.getAttribute(HeadingAnchors.attributes.content);
+		}
+		return "#";
+	}
+
+	// Placeholder nests inside of heading
+	getPlaceholderElement() {
+		let ph = document.createElement("span");
+		ph.setAttribute("aria-hidden", true);
+		ph.classList.add(HeadingAnchors.classes.placeholder);
+		let content = this.getContent();
+		if(content) {
+			ph.textContent = content;
+		}
+
+		ph.addEventListener("mouseover", (e) => {
+			let placeholder = e.target.closest(`.${HeadingAnchors.classes.placeholder}`);
+			if(placeholder) {
+				this.positionAnchorFromPlaceholder(placeholder);
+			}
+		});
+
+		return ph;
+	}
+
+	getAnchorElement(heading) {
+		let anchor = document.createElement("a");
+		anchor.href = `#${heading.id}`;
+		anchor.classList.add(HeadingAnchors.classes.anchor);
+
+		let content = this.getContent();
+		anchor.innerHTML = `<span class="${HeadingAnchors.classes.srOnly}">${this.getAccessibleTextPrefix()}: ${heading.textContent}</span>${content ? `<span aria-hidden="true">${content}</span>` : ""}`;
+
+		anchor.addEventListener("focus", e => {
+			let anchor = e.target.closest(`.${HeadingAnchors.classes.anchor}`);
+			if(anchor) {
+				this.positionAnchor(anchor);
+			}
+		});
+
+		anchor.addEventListener("mouseover", (e) => {
+			// when CSS anchor positioning is supported, this is only used to set the font
+			let anchor = e.target.closest(`.${HeadingAnchors.classes.anchor}`);
+			this.positionAnchor(anchor);
+		});
+
+		return anchor;
+	}
+
+	get headings() {
+		return this.querySelectorAll(this.selector.split(",").map(entry => `${entry.trim()}[id]`));
+	}
+
+	get selector() {
+		return this.getAttribute("selector") || HeadingAnchors.defaultSelector;
+	}
+}
+
+HeadingAnchors.register();
+
+export { HeadingAnchors }
+</script>
+  </head>
+  <body>
+    <script src="/pagefind/pagefind-ui.js"></script>
+
+<a href="#main-content" class="skip-link">Hoppa till innehåll</a>
+
+<header>
+  <div class="center" style="--measure: 100ch">
+    <!--  -->
+    <!-- <a class="home" href="/" label="Hem"> -->
+    <!--  -->
+    <!-- </a> -->
+    <!--  -->
+    <a class="home" href="/" label="Hem">
+      Brf Urbilden
+    </a>
+    <!--  -->
+
+    
+    <nav class="head-nav" aria-label="Huvudsaklig">
+  
+  <button hidden="" aria-expanded="false" aria-label="Visa navigeringsmeny" type="button" class="nav-button">
+    <span>Meny</span>
+  </button>
+  
+  <div class="nav">
+    
+    <div class="stack">
+        <h2 id="foervaltning">Förvaltning</h2>
+        <ul class="stack">
+          <li>
+            <a href="/felanmalan/">Felanmälan</a>
+          </li>
+          <li>
+            <a href="/ekonomi/">Ekonomi</a>
+          </li>
+          <li>
+            <a href="/ovriga-leverantorer/">Övriga fastighetstjänster</a>
+          </li>
+          <li>
+            <a href="/maklare/">För mäklare</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="boendeinformation">Boendeinformation</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om_renovering/">Om renovering</a>
+          </li>
+          <li>
+            <a href="/andrahandsuthyrning/">Andrahandsuthyrning</a>
+          </li>
+          <li>
+            <a href="/ordning-trivselregler/">Ordnings- och trivselregler</a>
+          </li>
+          <li>
+            <a href="/sopsortering-container/">Sopsortering och container</a>
+          </li>
+          <li>
+            <a href="/nycklar/">Nycklar och taggar</a>
+          </li>
+          <li aria-current="page">
+            <a href="/checklista_tilltrade_flytt/">Nyinflyttad?</a>
+          </li>
+          <li>
+            <a href="/medlemshandbok-om-foreningen/">Medlemshandbok</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="foereningen">Föreningen</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om-oss/">Om oss</a>
+          </li>
+          <li>
+            <a href="/stadgar/">Stadgar</a>
+          </li>
+          <li>
+            <a href="/arsredovisningar/">Årsredovisningar</a>
+          </li>
+          <li>
+            <a href="/styrelsen-2/">Styrelsen</a>
+          </li>
+          <li>
+            <a href="/integritetspolicy/">Integritetspolicy</a>
+          </li>
+          <li>
+            <a href="/fastighetsagare-sofielund/">Fastighetsägare BID Sofielund</a>
+          </li>
+          <li>
+            <a href="/valberedning/">Valberedning</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <search id="search">
+      <button hidden="" aria-expanded="false" aria-label="Visa sökmeny" type="button" class="search-button">
+        <svg aria-hidden="true" focusable="false" class="search-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8"></circle>
+          <line x1="16" y1="16" x2="22" y2="22"></line>
+        </svg>
+        <!-- <div aria-hidden="true" focusable="false" class="cancel-icon">×</div> -->
+        <svg aria-hidden="true" focusable="false" class="cancel-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="4" x2="20" y2="20"></line>
+          <line x1="20" y1="4" x2="4" y2="20"></line>
+        </svg>
+      </button>
+    </search>
+
+    <!--  -->
+    <!-- <h1>Brf Urbilden</h1> -->
+
+    <!-- <div id="search-main"></div> -->
+
+    <!-- <script> -->
+    <!-- window.addEventListener('DOMContentLoaded', (event) => { -->
+    <!-- new PagefindUI({element: "#search-main", showSubResults: true, highlightParam: "highlight"}); -->
+    <!-- }); -->
+    <!-- </script> -->
+    <!--  -->
+
+  </div>
+</header>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // Add search UI
+    new PagefindUI({element: "#search", showSubResults: true, highlightParam: "highlight"});
+
+    // Set up variables for navigation toggle
+    const navButton = document.querySelector(".nav-button");
+    navButton.hidden = false;
+
+    // Set up variables for search toggle
+    const searchButton = document.querySelector(".search-button");
+    searchButton.hidden = false;
+
+    // Add event listeners for toggles
+    navButton.addEventListener('click', (e) => {
+      const isExpanded = navButton.getAttribute("aria-expanded") === "true";
+      navButton.setAttribute("aria-expanded", !isExpanded)
+      searchButton.setAttribute("aria-expanded", "false");
+    });
+
+    searchButton.addEventListener('click', (e) => {
+      const isExpanded = searchButton.getAttribute("aria-expanded") === "true";
+      searchButton.setAttribute("aria-expanded", !isExpanded)
+      navButton.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
+
+
+    <script type="module">
+      await import('/pagefind/pagefind-highlight.js');
+      new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+
+    <main tabindex="-1" id="main-content">
+      <!-- <heading-anchors> -->
+        
+<article class="stack center" data-pagefind-body="">
+  <h1 id="checklista-tilltraede-och-flytt">Checklista tillträde och flytt</h1>
+
+  <p>TODO: Kanske bara länka till andra sidor? Skriv om rensa golvbrunn!!</p>
+<p>Här finns information om vad man som köpare, men även till viss del säljare, behöver tänka på inför tillträde och avflyttning.</p>
+<h2 id="tva-saker-som-foereningen-vill-tipsa-koepare-om-att-taenka-pa">Två saker som föreningen vill tipsa köpare om att tänka på:</h2>
+<ol>
+<li><strong>Elnäts- och elavtal</strong>: Då det är en andel nyinflyttade som missar att teckna elnäts- och elavtal innan inflyttning vill vi redan här rekommendera att läsa under rubriken ”Elnäts- och elavtal” om man inte redan läst informationen i vårt e-postmeddelande. Detta så att ni undviker att stå utan el och eventuellt onödiga kostnader. Skulle man välja att använda jouren för att sätta igång elen kommer man att bli debiterad denna kostnad.</li>
+<li><strong>Renovering</strong>: Även vid ändring av icke-bärande väggar behöver styrelsen kontaktas. Läs mer om vad som gäller vid renovering.</li>
+</ol>
+<h2 id="vad-innebaer-det-att-aega-en-bostadsraett">Vad innebär det att äga en bostadsrätt?</h2>
+<p>I korthet är en bostadsrätt en nyttjanderätt till en lägenhet, utan tidsbegränsning, som är kopplad till medlemskap i en bostadsrättsförening. Lägenheten ägs alltså av bostadsrättsföreningen och inte av bostadsrättshavaren.</p>
+<p>Högsta beslutande organ för en bostadsrättsförening är föreningsstämman/årsmötet och styrelsen är föreningens verkställande organ. Det är våra stadgar som styr verksamheten i stort. Som medlem i bostadsrättsföreningen ska man ha läst igenom föreningens stadgar minst en gång.</p>
+<p>Värt att veta är att vi som sitter i styrelsen är precis som ni medlem i föreningen. Är nyfiken på styrelsens uppgifter och kanske själv vill sitta i styrelsen kan du kontakta valberedningen eller styrelsen direkt.</p>
+<p>Även om stadgarna i sig har ett stycke kring ansvarsfördelningen mellan medlem och föreningen ska man även läsa dokumentet Ansvarsfördelning. Är det medlemmen själv som har ansvaret är det även denna som tar kostnadsansvaret och vice versa.</p>
+<p>Att äga en bostad skiljer sig en hel del från att vara hyresgäst. Att äga en bostadsrätt och vara medlem i en bostadsrättsförening innebär att du är delägare i allt föreningen äger, d.v.s. allt från tvättmaskinerna i källaren till utemöblerna på gården. Det innebär även att du är delansvarig i allt som händer, vare sig det är bra eller dåligt.</p>
+<p>Ekonomin i vår förening är alltså beroende av att vi alla hjälps åt. Månadsavgiften som du betalar för din lägenhet går till utgifterna för den dagliga driften (vaktmästeri, el, värme) och reparationer stora som små.</p>
+<p>Vid adressändring och folkbokföring efterfrågas ett lägenhetsnummer. Vad som efterfrågas är Lantmäteriets lägenhetsnumrering.</p>
+<p>Under 2009/2010 samlade Lantmäteriet på uppdrag av riksdagen in antal lägenheter/bostäder i Sverige. För att underlätta denna räkning fick varje lägenhet en fyrsiffrig kod, även kallat Lantmäteriets lägenhetsnummer eller Lantmäteri-koden (LM-kod). Har du köpt din lägenhet efter 2010 är den oftast med (efter föreningens lägenhetsnummer) på ditt överlåtelseavtal.</p>
+<p>LM-koden ingår således i ett nationellt lägenhetsregister och ska inte blandas ihop med föreningens egna lägenhetsförteckning. Numret består av fyra siffror som visar på vilken våning och var på våningen lägenheten finns. Numret saknar mening om det inte används tillsammans med en adress.</p>
+<p>Det är detta lägenhetsnummer, d.v.s. LM-koden, som  efterfrågas och inte föreningens lägenhetsnumrering. LM-koden som är kopplad till er lägenhet kan ni enklast hitta genom att titta på trapptavlan i ert trapphus där koderna finns uppsatta.</p>
+<p>Om fastighetsbeteckning efterfrågas är denna Urbilden 7.</p>
+<h2 id="boendeparkering">Boendeparkering</h2>
+<p>Föreningen har inte någon egen bilparkering. Dock kan man ansöka om så kallad boendeparkering hos Malmö stad. Se på Malmö stads hemsida för mer information kring detta.</p>
+<div class="info-box role=" note"="" aria-label"Information"=""><p>
+Föreningen har parkeringsförbud på innergården. Se längre ner för information vad som gäller vid av- och pålastning vid flytt.
+</p></div>
+<h2 id="elnaets-and-elavtal">Elnäts- &amp; elavtal</h2>
+<p>Elnätsavtal tecknas med det elnätsföretag som äger elnätet i det geografiska område man bor. Det är alltså inte valfritt utan i detta fall är det Eon man tecknar elnätsavtal med.</p>
+<p>Elavtalet (elhandelsavtalet) tecknas i sin tur med det företag, som man själv väljer, att köpa den el man förbrukar från.</p>
+<p>För mer information kring avtalen och vad som gäller vid flytt/inflyttning ber vi er att se <a href="https://www.eon.se/">Eons hemsida</a>.</p>
+<div class="info-box role=" note"="" aria-label"Information"=""><p>
+Viktigt är att säljare och köpare kommunicerar kring hur säljaren tänker göra kring sin el när denna flyttar. Det går oftast att överlåta de avtal man har till den nya medlemmen utan att behöva stänga ner elmätaren.
+</p></div>
+<p>Har säljaren bett Eon att stänga av elmätaren måste ni som köpare kontakta vår förvaltning, Bredablick Förvaltning, i god tid innan tillträde/inflyttning så att de kan sätta igång elmätaren till er. Observera att om ni väljer att använda jouren för detta kommer ni debiteras för kostnaden.</p>
+<p>Har ni helt missat att teckna elnätsavtal och elavtal vid inflytt kan inte föreningen hjälpa er utan detta måste ni sköta själv. Det finns alltså ingen poäng i att kontakta oss eller vår fastighetsjour för detta. Skulle ni göra så kommer ni debiteras eventuella jourkostnader. Däremot ska ni som sagt kontakta Bredablick Förvaltning för att sätta igång er elmätare (dock ej jouren). Se stycket ovan.</p>
+<h2 id="flyttbil-innergarden">Flyttbil – innergården</h2>
+<p>Vi har parkeringsförbud på innergården men vid av- och pålastning gör vi ett undantag.  Däremot godkänner vi inte att man låter flyttbilar eller andra bilar stå där längre än vad som krävs för flytten. För att komma in på gården via de stora grindarna använder du din portnyckel.</p>
+<h2 id="folkbokfoering">Folkbokföring</h2>
+<p>Enligt Folkbokföringslag (1991:481) §§ 6-7 skall man folkbokföras på den adress där man tillbringar den största del av sin dygnsvila. Tänk därför på att folkbokföra dig och samt göra en adressändring när du flyttar till föreningen. Detta gäller även för inneboende och för sambos om det kan anta att de kommer att tillbringa största delen av sin tid i lägenheten.</p>
+<p>Är det så att du av någon anledning inte har möjlighet att folkbokföra dig i din lägenhet ber vi dig kontakta styrelsen med information om detta.</p>
+<p>För information kring folkbokföring samt adressändring och vilka uppgifter som efterfrågas se ovan under ”Adressändring – LM-koden”.</p>
+<h2 id="foersaekring">Försäkring</h2>
+<p>Förutom att du behöver ha en hemförsäkring behöver du även teckna ett så kallat bostadsrättstillägg till din hemförsäkring. Kontakta ditt försäkringsbolag innan tillträde för mer information.</p>
+<h2 id="kaellare-and-vindsfoerrad">Källare- &amp; vindsförråd</h2>
+<p>Till varje lägenhet ingår ett källarförråd och ett vindsförråd. Dessa har samma nummer som ert lägenhetsnummer. Tänk på att flyttstäda dessa också samt att det ska vara låst med hänglås. Hänglås ombesörjer man själv.</p>
+<h2 id="laegenhetsnummer">Lägenhetsnummer</h2>
+<p>Som vi nämner ovan efterfrågar adressändring en så kallad LM-kod. Denna ska inte blandas ihop med lägenhetsnumret även kallat objektnummer. Vi har 117 lägenheter samt fyra lokaler i föreningen vilket innebär att lägenhetsnumren är på 1-3 siffror.</p>
+<p>Vid kontakt med styrelsen eller vår förvaltare är detta lägenhetsnumret som skall anges och  inget annat.</p>
+<h2 id="manadsavgiften">Månadsavgiften</h2>
+<p>Vår förvaltning, Bredablick Förvaltning, skickar ut faktura för den del av månadsavgiften som köpare samt säljaren ska stå för enligt tillträdesdagen. Kontakta vår förvaltning om ni har frågor kring detta.</p>
+<p>Det går fint att få månadsavgiften via autogiro eller som e-faktura. Hör med vår förvaltning för mer information kring detta.</p>
+<h2 id="nycklar-and-passagebrickor">Nycklar &amp; passagebrickor</h2>
+<p>Varje lägenhet bör ha tre stycken uppsättningar lägenhetsnycklar samt tre stycken uppsättningar med portnycklar. Detta kan dock avtalas annorledes mellan köpare och säljare. Ägaren ansvarar själv för sin lägenhetsnyckel emedan föreningen ansvarar för portnycklarna. Ny portnyckel måste därför köpas via föreningen.</p>
+<p>Till varje lägenhet skall det även ingå tre stycken passagebrickor (grön, röd och blå). Saknas brickor skall säljaren ordna detta innan tillträde. Det ska även ingå en till två bokningskolvar till tvättstugetavlan inklusive nycklar till dessa.</p>
+<h2 id="porttelefon">Porttelefon</h2>
+<p>Föreningen har porttelefonsystem där man kan koppla upp sig med fast- eller mobilnummer. Nya medlemmar läggs in med det telefonnummer som finns i ansökan om medlemskap på tillträdesdagen.</p>
+<p>Vill man uppge annat kontaktnummer eller inte vill kopplas upp mot systemet informerar man styrelsen om detta innan tillträde.</p>
+<h2 id="renovering">Renovering</h2>
+<p>Tänk på att större renoveringar, t.ex. förändring av bärande väggar, icke-bärande väggar samt annan förändring av ventilation och ledningar kräver tillstånd från styrelsen. Se under i Medlemshandboken under ”Renovering” för mer information.</p>
+<h2 id="tv-bredband-and-hemtelefon">TV, bredband &amp; hemtelefon</h2>
+<p>Glöm inte att säga upp eller flytta över eventuella abonnemang i god tid. Föreningen har avtal gällande digitalt grundutbud med Tele2 men har i övrigt inga andra avtal.</p>
+<h2 id="oeverlatelseavgift">Överlåtelseavgift</h2>
+<p>Föreningen tar enligt våra stadgar ut en överlåtelseavgift på 2,5 % av prisbasbeloppet (pbb) och föreningen har som policy att detta beloppet delas mellan säljare och köpare.</p>
+<p>Säljare och köpare kan dock komma överens om annan uppdelning genom sitt överlåtelseavtal och då debiterar föreningen enligt detta avtal.</p>
+
+</article>
+
+      <!-- </heading-anchors> -->
+    </main>
+
+    <footer>
+  <div class="center" style="--measure: 100ch">
+    
+    <nav class="foot-nav">
+  
+  <div class="nav">
+    
+    <div class="stack">
+        <h2 id="foervaltning-2">Förvaltning</h2>
+        <ul class="stack">
+          <li>
+            <a href="/felanmalan/">Felanmälan</a>
+          </li>
+          <li>
+            <a href="/ekonomi/">Ekonomi</a>
+          </li>
+          <li>
+            <a href="/ovriga-leverantorer/">Övriga fastighetstjänster</a>
+          </li>
+          <li>
+            <a href="/maklare/">För mäklare</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="boendeinformation-2">Boendeinformation</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om_renovering/">Om renovering</a>
+          </li>
+          <li>
+            <a href="/andrahandsuthyrning/">Andrahandsuthyrning</a>
+          </li>
+          <li>
+            <a href="/ordning-trivselregler/">Ordnings- och trivselregler</a>
+          </li>
+          <li>
+            <a href="/sopsortering-container/">Sopsortering och container</a>
+          </li>
+          <li>
+            <a href="/nycklar/">Nycklar och taggar</a>
+          </li>
+          <li aria-current="page">
+            <a href="/checklista_tilltrade_flytt/">Nyinflyttad?</a>
+          </li>
+          <li>
+            <a href="/medlemshandbok-om-foreningen/">Medlemshandbok</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="foereningen-2">Föreningen</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om-oss/">Om oss</a>
+          </li>
+          <li>
+            <a href="/stadgar/">Stadgar</a>
+          </li>
+          <li>
+            <a href="/arsredovisningar/">Årsredovisningar</a>
+          </li>
+          <li>
+            <a href="/styrelsen-2/">Styrelsen</a>
+          </li>
+          <li>
+            <a href="/integritetspolicy/">Integritetspolicy</a>
+          </li>
+          <li>
+            <a href="/fastighetsagare-sofielund/">Fastighetsägare BID Sofielund</a>
+          </li>
+          <li>
+            <a href="/valberedning/">Valberedning</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+    <hr>
+    <!-- TODO: nav eller ej? -->
+    <ul class="cluster" role="list">
+      <li>
+        <a href="/kontakt">Kontakt</a>
+      </li>
+      <li>
+        <a href="/integritetspolicy">Integritetspolicy</a>
+      </li>
+      <li>
+        <a href="/kolofon">Kolofon</a>
+      </li>
+      <li>
+        <a href="/tillganglighet">Tillgänglighet</a>
+      </li>
+    </ul>
+    <p>
+      &copy; Urbilden 2025
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<script src="/pagefind/pagefind-ui.js"></script>
+
+<a href="#main-content" class="skip-link">Hoppa till innehåll</a>
+
+<header>
+  <div class="center" style="--measure: 100ch">
+    <!-- {# if page.url == "/" #} -->
+    <!-- <a class="home" href="/" label="Hem"> -->
+    <!-- {# include "partials/favicon.svg" #} -->
+    <!-- </a> -->
+    <!-- {# else #} -->
+    <a class="home" href="/" label="Hem">
+      Brf Urbilden
+    </a>
+    <!-- {# endif #} -->
+
+    {% set navClass = "head-nav" %}
+    {% include "partials/nav.html" %}
+
+    <search id="search">
+      <button hidden aria-expanded="false" aria-label="Visa sökmeny" type="button" class="search-button">
+        <svg aria-hidden="true" focusable="false" class="search-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8"/>
+          <line x1="16" y1="16" x2="22" y2="22"/>
+        </svg>
+        <!-- <div aria-hidden="true" focusable="false" class="cancel-icon">×</div> -->
+        <svg aria-hidden="true" focusable="false" class="cancel-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="4" x2="20" y2="20"/>
+          <line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+    </search>
+
+    <!-- {# if page.url == "/" #} -->
+    <!-- <h1>Brf Urbilden</h1> -->
+
+    <!-- <div id="search-main"></div> -->
+
+    <!-- <script> -->
+    <!-- window.addEventListener('DOMContentLoaded', (event) => { -->
+    <!-- new PagefindUI({element: "#search-main", showSubResults: true, highlightParam: "highlight"}); -->
+    <!-- }); -->
+    <!-- </script> -->
+    <!-- {# endif #} -->
+
+  </div>
+</header>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // Add search UI
+    new PagefindUI({element: "#search", showSubResults: true, highlightParam: "highlight"});
+
+    // Set up variables for navigation toggle
+    const navButton = document.querySelector(".nav-button");
+    navButton.hidden = false;
+
+    // Set up variables for search toggle
+    const searchButton = document.querySelector(".search-button");
+    searchButton.hidden = false;
+
+    // Add event listeners for toggles
+    navButton.addEventListener('click', (e) => {
+      const isExpanded = navButton.getAttribute("aria-expanded") === "true";
+      navButton.setAttribute("aria-expanded", !isExpanded)
+      searchButton.setAttribute("aria-expanded", "false");
+    });
+
+    searchButton.addEventListener('click', (e) => {
+      const isExpanded = searchButton.getAttribute("aria-expanded") === "true";
+      searchButton.setAttribute("aria-expanded", !isExpanded)
+      navButton.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>

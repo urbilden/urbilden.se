@@ -1,0 +1,4 @@
+- [ ] Flytta Ekonomi och Felanmälan till kontakt?
+- [ ] Integrera Information - brf Urbilden på webben (den behöver oavsett uppdateras)
+- [ ] Integrera Ansvarsfördelning på webben
+- [ ] Lägg till `aria-hidden="true"` och `focusable="false"` på alla svg-filer

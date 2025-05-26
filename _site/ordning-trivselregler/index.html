@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta theme-color="#ffa348">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Bostadsrättsföreningen Urbilden består av två charmiga fastigheter som är byggda i slutet av 30-talet i norra Sofielund. Här hittar du en underbar innergård med lummigt gröna ytor – vår egen oas mitt i staden.">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Ordnings- och trivselregler</title>
+    <script type="module">// Thank you to https://github.com/daviddarnes/heading-anchors
+// Thank you to https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
+
+let globalInstanceIndex = 0;
+
+class HeadingAnchors extends HTMLElement {
+	static register(tagName) {
+		if ("customElements" in window) {
+			customElements.define(tagName || "heading-anchors", HeadingAnchors);
+		}
+	}
+
+	static attributes = {
+		exclude: "data-ha-exclude",
+		prefix: "prefix",
+		content: "content",
+	}
+
+	static classes = {
+		anchor: "ha",
+		placeholder: "ha-placeholder",
+		srOnly: "ha-visualhide",
+	}
+
+	static defaultSelector = "h2,h3,h4,h5,h6";
+
+	static css = `
+.${HeadingAnchors.classes.srOnly} {
+	clip: rect(0 0 0 0);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+.${HeadingAnchors.classes.anchor} {
+	position: absolute;
+	left: var(--ha_offsetx);
+	top: var(--ha_offsety);
+	text-decoration: none;
+	opacity: 0;
+}
+.${HeadingAnchors.classes.placeholder} {
+	opacity: .3;
+}
+.${HeadingAnchors.classes.anchor}:is(:focus-within, :hover) {
+	opacity: 1;
+}
+.${HeadingAnchors.classes.anchor},
+.${HeadingAnchors.classes.placeholder} {
+	display: inline-block;
+	padding: 0 .25em;
+
+	/* Disable selection of visually hidden label */
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+@supports (anchor-name: none) {
+	.${HeadingAnchors.classes.anchor} {
+		position: absolute;
+		left: anchor(left);
+		top: anchor(top);
+	}
+}`;
+
+	get supports() {
+		return "replaceSync" in CSSStyleSheet.prototype;
+	}
+
+	get supportsAnchorPosition() {
+		return CSS.supports("anchor-name: none");
+	}
+
+	constructor() {
+		super();
+
+		if(!this.supports) {
+			return;
+		}
+
+		let sheet = new CSSStyleSheet();
+		sheet.replaceSync(HeadingAnchors.css);
+		document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+
+		this.headingStyles = {};
+		this.instanceIndex = globalInstanceIndex++;
+	}
+
+	connectedCallback() {
+		if (!this.supports) {
+			return;
+		}
+
+		this.headings.forEach((heading, index) => {
+			if(!heading.hasAttribute(HeadingAnchors.attributes.exclude)) {
+				let anchor = this.getAnchorElement(heading);
+				let placeholder = this.getPlaceholderElement();
+
+				// Prefers anchor position approach for better accessibility
+				// https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
+				if(this.supportsAnchorPosition) {
+					let anchorName = `--ha_${this.instanceIndex}_${index}`;
+					placeholder.style.setProperty("anchor-name", anchorName);
+					anchor.style.positionAnchor = anchorName;
+				}
+
+				heading.appendChild(placeholder);
+				heading.after(anchor);
+			}
+		});
+	}
+
+	// Polyfill-only
+	positionAnchorFromPlaceholder(placeholder) {
+		if(!placeholder) {
+			return;
+		}
+
+		let heading = placeholder.closest("h1,h2,h3,h4,h5,h6");
+		if(!heading.nextElementSibling) {
+			return;
+		}
+
+		// TODO next element could be more defensive
+		this.positionAnchor(heading.nextElementSibling);
+	}
+
+	// Polyfill-only
+	positionAnchor(anchor) {
+		if(!anchor || !anchor.previousElementSibling) {
+			return;
+		}
+
+		// TODO previous element could be more defensive
+		let heading = anchor.previousElementSibling;
+		this.setFontProp(heading, anchor);
+
+		if(this.supportsAnchorPosition) {
+			// quit early
+			return;
+		}
+
+		let placeholder = heading.querySelector(`.${HeadingAnchors.classes.placeholder}`);
+		if(placeholder) {
+			anchor.style.setProperty("--ha_offsetx", `${placeholder.offsetLeft}px`);
+			anchor.style.setProperty("--ha_offsety", `${placeholder.offsetTop}px`);
+		}
+	}
+
+	setFontProp(heading, anchor) {
+		let placeholder = heading.querySelector(`.${HeadingAnchors.classes.placeholder}`);
+		if(placeholder) {
+			let style = getComputedStyle(placeholder);
+			let props = ["font-weight", "font-size", "line-height", "font-family"];
+			let font = props.map(name => style.getPropertyValue(name));
+			anchor.style.setProperty("font", `${font[0]} ${font[1]}/${font[2]} ${font[3]}`);
+		}
+	}
+
+	getAccessibleTextPrefix() {
+		// Useful for i18n
+		return this.getAttribute(HeadingAnchors.attributes.prefix) || "Jump to section titled";
+	}
+
+	getContent() {
+		if(this.hasAttribute(HeadingAnchors.attributes.content)) {
+			return this.getAttribute(HeadingAnchors.attributes.content);
+		}
+		return "#";
+	}
+
+	// Placeholder nests inside of heading
+	getPlaceholderElement() {
+		let ph = document.createElement("span");
+		ph.setAttribute("aria-hidden", true);
+		ph.classList.add(HeadingAnchors.classes.placeholder);
+		let content = this.getContent();
+		if(content) {
+			ph.textContent = content;
+		}
+
+		ph.addEventListener("mouseover", (e) => {
+			let placeholder = e.target.closest(`.${HeadingAnchors.classes.placeholder}`);
+			if(placeholder) {
+				this.positionAnchorFromPlaceholder(placeholder);
+			}
+		});
+
+		return ph;
+	}
+
+	getAnchorElement(heading) {
+		let anchor = document.createElement("a");
+		anchor.href = `#${heading.id}`;
+		anchor.classList.add(HeadingAnchors.classes.anchor);
+
+		let content = this.getContent();
+		anchor.innerHTML = `<span class="${HeadingAnchors.classes.srOnly}">${this.getAccessibleTextPrefix()}: ${heading.textContent}</span>${content ? `<span aria-hidden="true">${content}</span>` : ""}`;
+
+		anchor.addEventListener("focus", e => {
+			let anchor = e.target.closest(`.${HeadingAnchors.classes.anchor}`);
+			if(anchor) {
+				this.positionAnchor(anchor);
+			}
+		});
+
+		anchor.addEventListener("mouseover", (e) => {
+			// when CSS anchor positioning is supported, this is only used to set the font
+			let anchor = e.target.closest(`.${HeadingAnchors.classes.anchor}`);
+			this.positionAnchor(anchor);
+		});
+
+		return anchor;
+	}
+
+	get headings() {
+		return this.querySelectorAll(this.selector.split(",").map(entry => `${entry.trim()}[id]`));
+	}
+
+	get selector() {
+		return this.getAttribute("selector") || HeadingAnchors.defaultSelector;
+	}
+}
+
+HeadingAnchors.register();
+
+export { HeadingAnchors }
+</script>
+  </head>
+  <body>
+    <script src="/pagefind/pagefind-ui.js"></script>
+
+<a href="#main-content" class="skip-link">Hoppa till innehåll</a>
+
+<header>
+  <div class="center" style="--measure: 100ch">
+    <!--  -->
+    <!-- <a class="home" href="/" label="Hem"> -->
+    <!--  -->
+    <!-- </a> -->
+    <!--  -->
+    <a class="home" href="/" label="Hem">
+      Brf Urbilden
+    </a>
+    <!--  -->
+
+    
+    <nav class="head-nav" aria-label="Huvudsaklig">
+  
+  <button hidden="" aria-expanded="false" aria-label="Visa navigeringsmeny" type="button" class="nav-button">
+    <span>Meny</span>
+  </button>
+  
+  <div class="nav">
+    
+    <div class="stack">
+        <h2 id="foervaltning">Förvaltning</h2>
+        <ul class="stack">
+          <li>
+            <a href="/felanmalan/">Felanmälan</a>
+          </li>
+          <li>
+            <a href="/ekonomi/">Ekonomi</a>
+          </li>
+          <li>
+            <a href="/ovriga-leverantorer/">Övriga fastighetstjänster</a>
+          </li>
+          <li>
+            <a href="/maklare/">För mäklare</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="boendeinformation">Boendeinformation</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om_renovering/">Om renovering</a>
+          </li>
+          <li>
+            <a href="/andrahandsuthyrning/">Andrahandsuthyrning</a>
+          </li>
+          <li aria-current="page">
+            <a href="/ordning-trivselregler/">Ordnings- och trivselregler</a>
+          </li>
+          <li>
+            <a href="/sopsortering-container/">Sopsortering och container</a>
+          </li>
+          <li>
+            <a href="/nycklar/">Nycklar och taggar</a>
+          </li>
+          <li>
+            <a href="/checklista_tilltrade_flytt/">Nyinflyttad?</a>
+          </li>
+          <li>
+            <a href="/medlemshandbok-om-foreningen/">Medlemshandbok</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="foereningen">Föreningen</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om-oss/">Om oss</a>
+          </li>
+          <li>
+            <a href="/stadgar/">Stadgar</a>
+          </li>
+          <li>
+            <a href="/arsredovisningar/">Årsredovisningar</a>
+          </li>
+          <li>
+            <a href="/styrelsen-2/">Styrelsen</a>
+          </li>
+          <li>
+            <a href="/integritetspolicy/">Integritetspolicy</a>
+          </li>
+          <li>
+            <a href="/fastighetsagare-sofielund/">Fastighetsägare BID Sofielund</a>
+          </li>
+          <li>
+            <a href="/valberedning/">Valberedning</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <search id="search">
+      <button hidden="" aria-expanded="false" aria-label="Visa sökmeny" type="button" class="search-button">
+        <svg aria-hidden="true" focusable="false" class="search-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8"></circle>
+          <line x1="16" y1="16" x2="22" y2="22"></line>
+        </svg>
+        <!-- <div aria-hidden="true" focusable="false" class="cancel-icon">×</div> -->
+        <svg aria-hidden="true" focusable="false" class="cancel-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="4" x2="20" y2="20"></line>
+          <line x1="20" y1="4" x2="4" y2="20"></line>
+        </svg>
+      </button>
+    </search>
+
+    <!--  -->
+    <!-- <h1>Brf Urbilden</h1> -->
+
+    <!-- <div id="search-main"></div> -->
+
+    <!-- <script> -->
+    <!-- window.addEventListener('DOMContentLoaded', (event) => { -->
+    <!-- new PagefindUI({element: "#search-main", showSubResults: true, highlightParam: "highlight"}); -->
+    <!-- }); -->
+    <!-- </script> -->
+    <!--  -->
+
+  </div>
+</header>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // Add search UI
+    new PagefindUI({element: "#search", showSubResults: true, highlightParam: "highlight"});
+
+    // Set up variables for navigation toggle
+    const navButton = document.querySelector(".nav-button");
+    navButton.hidden = false;
+
+    // Set up variables for search toggle
+    const searchButton = document.querySelector(".search-button");
+    searchButton.hidden = false;
+
+    // Add event listeners for toggles
+    navButton.addEventListener('click', (e) => {
+      const isExpanded = navButton.getAttribute("aria-expanded") === "true";
+      navButton.setAttribute("aria-expanded", !isExpanded)
+      searchButton.setAttribute("aria-expanded", "false");
+    });
+
+    searchButton.addEventListener('click', (e) => {
+      const isExpanded = searchButton.getAttribute("aria-expanded") === "true";
+      searchButton.setAttribute("aria-expanded", !isExpanded)
+      navButton.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
+
+
+    <script type="module">
+      await import('/pagefind/pagefind-highlight.js');
+      new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+
+    <main tabindex="-1" id="main-content">
+      <!-- <heading-anchors> -->
+        
+<article class="stack center" data-pagefind-body="">
+  <h1 id="ordnings-och-trivselregler">Ordnings- och trivselregler</h1>
+
+  <p>Nedan hittar ni vilka ordnings- och trivselregler som gäller för föreningen. Dessa kommer i sin tur ur föreningens stadgar som man genom sin ansökan om medlemskap i föreningen godkänt att respektera och följa. Genom att följa dessa kan vi tillsammans skapa en trivsam och trygg miljö för alla boende!</p>
+<h2 id="var-omtaenksam-respektera-dina-grannar">Var omtänksam – respektera dina grannar!</h2>
+<p>För inte oväsen efter kl. 22.00 (vardagar) och 01.00 (helger).</p>
+<p>Om du ska ha fest, meddela dina grannar – det ökar förståelsen. Tänk på att fester även kan störa grannar i trapphusen bredvid. Observera att det inte är tillåtet att ha högljudda fester där man i ett flertal timmar stör sina grannar och det är inte heller tillåtet att ha återkommande fester och/eller spela musik med hög ljudnivå.</p>
+<p>Lägenheterna är lyhörda och ljudnivån bör sänkas redan vid 20.00. Högljudd renovering får alltså inte förekomma efter kl. 20.00. Ta hänsyn till de som bor runt dig, tänk på att dina grannar hör en stor andel av förekommande ljud i din lägenhet, såsom musik, dusch/bad, matberedare, dammsugning, osv. När det gäller eventuella disk- och tvättmaskiner i lägenheten ska dessa inte köras efter kl. 22.00 om de inte är rejält tystgående.</p>
+<p>Nedan har vi tagit fram några av de viktigaste trivselreglerna i föreningen. Dock kan ni läsa mer om vad som gäller som medlem i brf Urbilden i vår medlemshandbok.</p>
+<h3 id="bil-pa-innergarden">Bil på innergården</h3>
+<p>Är du i behov av att köra in din bil på gården vid inflyttning/flytt går detta naturligtvis bra.</p>
+<p>Tänk bara på att all långtidsparkering inne på gården är förbjuden – fastighetsskötare och utryckningsfordon undantaget. Om du vill ha mer information kring parkering ber vi er se i vår <a href="/medlemshandbok-om-foreningen#parkering">medlemshandbok</a>.</p>
+<h3 id="flytt-av-mindre-moeblemang-pa-innergarden">Flytt av mindre möblemang på innergården</h3>
+<p>Även om de flesta boende förstår att man ska ställa tillbaka det man flyttar på har vi sett ett ökat problem med att boende flyttar på de mindre möblemangen för att därefter inte ställa tillbaka de var det stod.</p>
+<p>Det kan resultera i att möbler står kvar på vara brandvägar vilket självklart inte är ok. Utan flyttar man på något så ställer man därefter tillbaka det var man tog det ifrån.</p>
+<h3 id="flytt-av-tyngre-moebler-pa-innergarden">Flytt av tyngre möbler på innergården</h3>
+<p>Även om de flesta medlemmar förstår nedanstående har det visat sig att vi har boende som gärna flyttar runt på möblemang. Därför tål det att nämnas här.</p>
+<p>Det har aldrig varit tillåtet att flytta runt på föreningens större möblemang för att på så sätt komma åt att sitta i solen och/eller för att utöka ytan för er sammankomst. Våra allmänna ytor är gemensamma och ska därmed inte användas för endast egennytta.</p>
+<p>Möblerna står på avsedd plats då dessa är mest lämpliga med hänsyn till boende i fastigheterna, d.v.s. här stör de sammankomster som kan ske vid möblemanget minst!</p>
+<h3 id="grillplatsen">Grillplatsen</h3>
+<div class="info-box role=" note"="" aria-label"Information"=""><p>
+Grillplatsen är inte avsedd för att hålla större fester utan för enklare och lugnare sammankomster med mindre antal deltagare, ca 10 personer (exklusive barn). Musik tillåts inte. Inga undantag – dessa regler gäller oavsett vad din sammankomst gäller!
+</p></div>
+<p>Har ni frågor eller funderingar kring bokning/användning av grillplatsen ber vi er att kontakta oss. När ni bokar godkänner ni att ni förstår och följer föreningens regler.</p>
+<p>För bokning av grillplatsen gäller följande tider:</p>
+<ul>
+<li>söndag till torsdag kl. 10.00–22.00, ljudnivån sänks vid 20.00.</li>
+<li>fredag till lördag kl. 11.00–24.00</li>
+</ul>
+<p>Observera att dessa tider gäller för bokning av grillen och vid sammankomster. Vill man bruka grillplatsen för att äta sin frukost i lugn och ro så är det självklart helt okej att göra detta innan ovanstående tider. Kontrollera bara att ingen bokat grillplatsen. Bokningslista för grillplatsen finns i ”kuddlådan”.</p>
+<p>Respektera tiderna och ordningsreglerna, visa hänsyn till era grannar och kom ihåg att städa efter er! För att spara på miljö ber vi er att lägga glasflaskor samt plastförpackningar i anvisade kärl i miljörummet.</p>
+<p>Tänk även på att hålla er till grillplatsen, det vill säga gräsmattorna är inte till för att användas som festutrymmen. Det är okej att spela utomhusspel men dessa ska hålla en lagom ljudnivå och får inte innebära att övriga boende inte kan vistas på gräsmatta/innergård.</p>
+<h3 id="hall-rent">Håll rent</h3>
+<p>Naturligtvis håller var och en rent efter sig i tvättstuga, på uteplatsen och övriga gemensamma utrymmen.</p>
+<p>Sopor sorterar man och slänger på avsedd plats, förutom kärlen för restavfall har föreningen ett fint miljörum och matsortering.</p>
+<p>Tänk på att det endast är förpackningar som slängs bland plast, papper, metall och glas i miljörummet.</p>
+<h3 id="innergarden-och-balkonger">Innergården och balkonger</h3>
+<p>Vid vistelse på innergården samt på sina balkonger gäller det att man respekterar sina grannar och tänker på ljudnivån, se ovan för mer information. Våra två fastigheter har en förmåga att amplifiera ljud både från innergården men även från balkongerna.</p>
+<p>Endast bokad grillplats får användas för sammankomster, det vill säga som ”festutrymme”.</p>
+<h3 id="kaellare-och-vindsutrymmen">Källare- och vindsutrymmen</h3>
+<p>Du ansvar för ditt förråd och dess innehåll – förråden skall låsas och hållas i ordning.</p>
+<p>Använd således inte förråd som inte tillhör din lägenhet. Förvara inte lättantändliga material och kom ihåg att det är förbjudet att lagra skräp i förrådet. Undvik också att förvara värdefulla föremål, då det tyvärr alltid finns en risk för inbrott.</p>
+<h3 id="renoveringar">Renoveringar</h3>
+<p>Vid renoveringar som kommer att höras och störa grannarna under ska man sätta upp en informationslapp i de trapphus där man har grannar som kan bli störda.</p>
+<p>På lappen informerar man om att det pågår en renovering i lgh. X och att renoveringen kan komma att ta X lång tid. Ange gärna kontaktuppgifter till er själv och/eller hantverkare så att era grannar kan komma i kontakt med er om det är något de undrar över.</p>
+<p>Lägg även ett mejl till styrelsen också så vet vi vad som är på gång om någon granne hör av sig. Tänk på att större renoveringar, t.ex. förändring av bärande väggar, icke-bärande väggar samt annan förändring av ventilation och ledningar kräver tillstånd från styrelsen. Se i medlemshandboken under avsnittet om renovering för mer information.</p>
+<p>Vid renovering gäller självklart lite andra tider för oväsen. Vardagar är det ok att renovera mellan kl. 07.00–20.00, dock inte sammanhängande tid. Helger bör man avvakta med oväsen till kl. 12.00 och avsluta 18.00. Tänk på att era grannar behöver få möjlighet till vila.</p>
+<h3 id="rastning-av-hund">Rastning av hund</h3>
+<p>Rastning av hundar inte är inte tillåtet på innergården.</p>
+<p>Det innebär att du är välkommen att ha din hund på innergården, mot att den inte stör och du har koll på den, dock får den inte utföra sina behov här!</p>
+<h3 id="trapphusen">Trapphusen</h3>
+<p>Trapphusen ska hållas tomma och det innebär att det t.ex. inte är tillåtet med dörrmattor eller krukor i våra trapphus. Det är alltså inte heller tillåtet att förvara/ställa cyklar eller barnvagnar i trapphusen.</p>
+<p>Först och främst för att allt onödigt materiel i trapphusen utgör en allvarlig brandrisk men också för att hålla en god arbetsmiljö vid städning.</p>
+<p>Tänk också på att våra trapphus håller längre och även minimerar onödiga kostar om man inte törnar emot våra väggar och rädd om lägenhetsdörrar och räckena också.</p>
+<h2 id="grannar-som-stoer">Grannar som stör</h2>
+<p>Ibland uppstår det problem med så kallade störningar. Nedan har vi tagit med information kring detta och vad man själv som boende kan göra. Informationen går även att hitta i fliken Medlemshandboken.</p>
+<h3 id="vad-kan-raeknas-som-en-stoerning">Vad kan räknas som en störning?</h3>
+<p>Det kan handla om att det förekommer höga ljud, såsom hög musik eller att det låter som om din granne ständigt renoverar, hotfullt beteende eller olämpligt beteende eller att det förekommer högljudda fester på innergården eller på din grannes balkong.</p>
+<h3 id="handlar-det-alltid-om-att-det-aer-en-stoerning-bara-foer-att-man-blir-stoerd">Handlar det alltid om att det är en störning bara för att man blir störd</h3>
+<p>Nej, man får helt enkelt avgöra från fall till fall. Att man är osäker på om det är en störning innebär inte att man inte ska kontakta styrelsen utan det är alltid bättre att informera oss.</p>
+<h3 id="ska-jag-sjaelv-prata-med-min-granne">Ska jag själv prata med min granne?</h3>
+<p>Har ni en granne som ni tycker stör rekommenderar styrelsen att man själv tar ett samtal med sin granne. Kommunikation grannar emellan brukar lösa de flesta problem.</p>
+<h3 id="vad-kan-styrelsen-goera">Vad kan styrelsen göra?</h3>
+<p>Styrelsens ansvar är att motverka och åtgärda störningar. Beroende på om det anses vara en störning och vilken form av störning som avses finns det olika tillvägagångssätt. Vill ni har mer allmän information ber vi er att kontakta oss.</p>
+<h3 id="ska-jag-kontakta-styrelsen">Ska jag kontakta styrelsen?</h3>
+<p>Om ni upplever att ni inte blir hörsammade och/eller störningarna fortsätter eller är av den grad att det inte går att åtgärda genom ett samtal med sin granne behöver ni kontakta oss och informerar om vad som skett.</p>
+<p>Om inte styrelsen blir informerad så kan vi inte heller ta beslut om eventuella åtgärder.</p>
+<h2 id="stoerningsjouren">Störningsjouren</h2>
+<p>Om du försökt tala med din granne, t.ex. om hen har en högljudd fest men inte blir hörsammad fungerar föreningens jour, Örestads Bevakning, även som en störningsjour.</p>
+<p>Detta gäller vid användning av störningsjouren.</p>
+<ul>
+<li>Det går inte att använda störningsjouren anonymt – dock får inte den/dem som stör någon information om vem som ringt jouren.</li>
+<li>Använder ni er av störningsjouren kräver föreningen även att ni lägger ett mejl till info@urbilden.se och informerar om vad som skett. Styrelsen behöver detta underlag för att ta beslut om ev. åtgärder. Används störningsjouren utan att ni informerar oss kan ni ersättningsskyldiga för eventuella kostnader.</li>
+</ul>
+<p>Ni når jouren genom att ringa föreningens förvaltning.</p>
+<p>Det finns en skillnad mellan det som ses som störningar och det som anses vara hotfullt. Vid hotfulla situationer ber vi er själv avgöra om ni vill använda jouren eller om ni finner det mer lämpligt att kontakta polisen.</p>
+<p>Vid sådana händelser ber vi er också att snarast möjligt informera styrelsen om vad som skett. Det går även bra att kontakta vår fastighetsförvaltare som då tar kontakt med oss.</p>
+
+</article>
+
+      <!-- </heading-anchors> -->
+    </main>
+
+    <footer>
+  <div class="center" style="--measure: 100ch">
+    
+    <nav class="foot-nav">
+  
+  <div class="nav">
+    
+    <div class="stack">
+        <h2 id="foervaltning-2">Förvaltning</h2>
+        <ul class="stack">
+          <li>
+            <a href="/felanmalan/">Felanmälan</a>
+          </li>
+          <li>
+            <a href="/ekonomi/">Ekonomi</a>
+          </li>
+          <li>
+            <a href="/ovriga-leverantorer/">Övriga fastighetstjänster</a>
+          </li>
+          <li>
+            <a href="/maklare/">För mäklare</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="boendeinformation-2">Boendeinformation</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om_renovering/">Om renovering</a>
+          </li>
+          <li>
+            <a href="/andrahandsuthyrning/">Andrahandsuthyrning</a>
+          </li>
+          <li aria-current="page">
+            <a href="/ordning-trivselregler/">Ordnings- och trivselregler</a>
+          </li>
+          <li>
+            <a href="/sopsortering-container/">Sopsortering och container</a>
+          </li>
+          <li>
+            <a href="/nycklar/">Nycklar och taggar</a>
+          </li>
+          <li>
+            <a href="/checklista_tilltrade_flytt/">Nyinflyttad?</a>
+          </li>
+          <li>
+            <a href="/medlemshandbok-om-foreningen/">Medlemshandbok</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="foereningen-2">Föreningen</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om-oss/">Om oss</a>
+          </li>
+          <li>
+            <a href="/stadgar/">Stadgar</a>
+          </li>
+          <li>
+            <a href="/arsredovisningar/">Årsredovisningar</a>
+          </li>
+          <li>
+            <a href="/styrelsen-2/">Styrelsen</a>
+          </li>
+          <li>
+            <a href="/integritetspolicy/">Integritetspolicy</a>
+          </li>
+          <li>
+            <a href="/fastighetsagare-sofielund/">Fastighetsägare BID Sofielund</a>
+          </li>
+          <li>
+            <a href="/valberedning/">Valberedning</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+    <hr>
+    <!-- TODO: nav eller ej? -->
+    <ul class="cluster" role="list">
+      <li>
+        <a href="/kontakt">Kontakt</a>
+      </li>
+      <li>
+        <a href="/integritetspolicy">Integritetspolicy</a>
+      </li>
+      <li>
+        <a href="/kolofon">Kolofon</a>
+      </li>
+      <li>
+        <a href="/tillganglighet">Tillgänglighet</a>
+      </li>
+    </ul>
+    <p>
+      &copy; Urbilden 2025
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
