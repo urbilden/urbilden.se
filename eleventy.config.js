@@ -25,17 +25,6 @@ export default function(eleventyConfig) {
   })
   
   // Filters
-  // eleventyConfig.addFilter('printFileContents', function(filePath) {
-  //   const relativeFilePath = "." + filePath;
-  //   console.log(relativeFilePath);
-  //   const fileContents = fs.readFileSync(relativeFilePath, (err, data) => {
-  //     if (err) throw err;
-  //     return data;
-  //   });
-
-  //   return fileContents.toString('utf8')
-  // })
-
   eleventyConfig.addFilter('printFileSize', function(filePath) {
     const fileStats = fs.statSync(filePath, (err, data) => {
       if (err) throw err;
