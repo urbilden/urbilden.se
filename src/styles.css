@@ -521,7 +521,7 @@ h3 {
   font-size: var(--step-1);
 }
 
-a:link {
+a {
   color: currentColor;
   text-decoration-color: var(--color-primary-500);
   text-decoration-thickness: 0.2ex;
