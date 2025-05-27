@@ -10,7 +10,7 @@
     </svg>
   </a>
 </div>
-{%- for letter in collections.newsletter %}
+{%- for letter in collections.newsletter | reverse %}
 <article>
   <h3>
     <a href="{{letter.url}}">
