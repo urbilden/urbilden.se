@@ -733,6 +733,9 @@ footer {
 
 footer,
 header {
+  a:visited {
+    color: currentColor;
+  }
 
   & li,
   & ul {
