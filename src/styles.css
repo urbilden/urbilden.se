@@ -109,6 +109,13 @@
   margin: 0;
 }
 
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+
 /* Set core body defaults */
 :where(body) {
   min-height: 100vh;
@@ -819,6 +826,7 @@ mark {
   gap: var(--space, 1rem);
   justify-content: flex-start;
   align-items: center;
+  padding-inline-start: 0;
 }
 
 .icon {
