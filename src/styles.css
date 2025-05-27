@@ -799,7 +799,11 @@ mark {
   --stack-space: 1.8em;
 }
 
-:where(p, ul, ol, hr, .button, .info-box) {
+:is(section) {
+  --stack-space: var(--space-xl)
+}
+
+:where(p, ul, ol, hr, picture, article, .button, .info-box) {
   --stack-space: 1lh;
 }
 
