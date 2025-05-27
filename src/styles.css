@@ -141,6 +141,7 @@ ol[role='list'] {
   height: auto;
   max-width: 100%;
   display: block;
+  margin-inline: auto;
 }
 
 /* Improve line wrapping */
