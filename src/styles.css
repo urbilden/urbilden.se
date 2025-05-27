@@ -601,7 +601,8 @@ header button {
 }
 
 figcaption {
-  text-align: center;
+  max-inline-size: max-content;
+  margin-inline: auto;
   padding-block-start: var(--space-xs);
 }
 
