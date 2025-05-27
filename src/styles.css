@@ -546,9 +546,9 @@ a:hover {
 /* color: red; */
 /* } */
 
-[aria-current="page"] {
-  color: green;
-}
+/* [aria-current="page"] { */
+/* color: green; */
+/* } */
 
 a[href$=".pdf"]::after {
   content: "↓";
