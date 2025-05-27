@@ -6,7 +6,7 @@ layout: layouts/article.html
 TODO: länka helt enkelt till respektive sida
 
 
-Här hittar ni kontakt uppgifter till styrelsen och vår förvaltare. Har ni frågor som rör ekonomi, såsom beställning av nya avier för månadsavgiften, mäklarbild/lägenhetsbild, lån, överlåtelsehandlingar samt felanmälningar kontaktar ni vår förvaltning direkt. Kontaktuppgifter hittar ni under respektive flik för Teknisk förvaltning – felanmälan och Ekonomisk förvaltning.
+Här hittar ni kontakt uppgifter till styrelsen och vår förvaltare. Har ni frågor som rör ekonomi, såsom beställning av nya avier för månadsavgiften, mäklarbild/lägenhetsbild, lån, överlåtelsehandlingar samt felanmälningar kontaktar ni vår förvaltning direkt. Kontaktuppgifter hittar ni under respektive flik för Teknisk förvaltning -- felanmälan och Ekonomisk förvaltning.
 
 ## Styrelsen
 

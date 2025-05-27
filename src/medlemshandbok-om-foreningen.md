@@ -50,11 +50,11 @@ Skulle ni behöva hjälp av styrelsen är det bara att [mejla till oss](mailto:i
 
 [Läs om vem som ansvarar för vad i föreningen](/assets/ansvarsfordelning.pdf). Ni kan även hitta denna information i föreningens stadgar.
 
-## Avier – månadsavgiften
+## Avier -- månadsavgiften
 
 Behöver ni nya avier ber vi er att [kontakta vår förvaltare](/ekonomi) så hjälper dem er.
 
-## Autogiro – månadsavgiften
+## Autogiro -- månadsavgiften
 
 Ni ansöker om autogiro genom att skicka [lämplig blankett](https://bredablickforvaltning.se/blanketter/) till vår förvaltare Bredablick.
 
@@ -92,14 +92,14 @@ Det innebär att styrelsen i sig inte har några förbehåll gällande uppsättn
 
 Men vi ber er att läsa nedan för mer information kring kattnät innan ni [kontaktar oss](mailto:info@urbilden.se) för tillstånd. 
 
-*   Vi godkänner att man fäster kattnätet i balkongkonstruktionen – både sin egen balkong och eventuell balkong ovanför (dock ska detta kommuniceras med grannen ovanför och göras utan att det blir till men för grannen).
-*   Vi godkänner **inte** att man gör åverkan på fasaden – först och främst för att det helt enkelt inte är nödvändigt att fästa kattnät i fasaden.
+*   Vi godkänner att man fäster kattnätet i balkongkonstruktionen -- både sin egen balkong och eventuell balkong ovanför (dock ska detta kommuniceras med grannen ovanför och göras utan att det blir till men för grannen).
+*   Vi godkänner **inte** att man gör åverkan på fasaden -- först och främst för att det helt enkelt inte är nödvändigt att fästa kattnät i fasaden.
 
 Vi vill att det kattnät som används ska vara så diskret som möjligt och att övrig eventuell konstruktion inte heller ska inverka på fasaden och balkongens utseende för mycket. Se gärna hur andra medlemmar gjort i föreningen och fråga då styrelsen om detta är ett godkänt sätt att sätta upp kattnät.
 
-Vi är medvetna om att ni som bor överst, det vill säga inte har en ”balkonggranne” ovanför behöver stabilare konstruktioner för att fästa nätet. Vilket vi då godkänner – dock gäller det samma som ovan – det vill säga att man ska göra det med omsorg och se så att konstruktionen inte inverkar på fasaden och balkongens utseende med än nödvändigt.
+Vi är medvetna om att ni som bor överst, det vill säga inte har en ”balkonggranne” ovanför behöver stabilare konstruktioner för att fästa nätet. Vilket vi då godkänner -- dock gäller det samma som ovan -- det vill säga att man ska göra det med omsorg och se så att konstruktionen inte inverkar på fasaden och balkongens utseende med än nödvändigt.
 
-Tänk på att det vanligtvis inte krävs något bygglov för ett vanligt kattnät som fästs i tak eller i balkongen ovanför. Ett bygglov kan bli aktuellt om man planerar tak eller andra speciallösningar – hör med fackman samt med styrelsen om ni ämnar sätta upp någon speciallösning.
+Tänk på att det vanligtvis inte krävs något bygglov för ett vanligt kattnät som fästs i tak eller i balkongen ovanför. Ett bygglov kan bli aktuellt om man planerar tak eller andra speciallösningar -- hör med fackman samt med styrelsen om ni ämnar sätta upp någon speciallösning.
 
 Om ni inte ber om tillstånd eller inte beviljas tillstånd men ändå sätter upp nätet kan bostadsrättsföreningen komma att kräva att ni ska nedmontera nätet samt att ni blir ersättningsskyldiga för eventuella skador.
 
@@ -133,7 +133,7 @@ Vill ni ha er cykel på innergården ska ni tänk på att ställa cyklar vid cyk
 
 För att minska onödigt slitage ser vi gärna att inga cyklar står mot fasad eller räcken till källarnedgångarna. Det är också helt förbjudet att låsa fast sin cykel vid stuprören och att ställa sina cyklar vid krukorna vid miljörummet.
 
-## Bostadsrättstillägg – hemförsäkring
+## Bostadsrättstillägg -- hemförsäkring
 
 Denna ska medlem själv teckna via sin hemförsäkring. Föreningen tecknar alltså inte detta för sina medlemmar.
 
@@ -143,7 +143,7 @@ Enligt våra stadgar ska lägenhetsinnehavaren/-arna själv se till så att det 
 
 Däremot har föreningen brandvarnare utplacerade i fastigheten. Skulle man upptäcka att dessa står och piper är man varmt välkommen att lägga ett [felmeddelande](/felanmalan/) avseende detta till vår fastighetsförvaltning.
 
-## Bärande vägar – renovering
+## Bärande vägar -- renovering
 
 Förändring av bärande väggar, icke-bärande väggar samt annan förändring av ventilation och ledningar kräver tillstånd från styrelsen. Se under ”Renovering” för mer information.
 
@@ -165,7 +165,7 @@ Innan man gör felanmälan gällande elavbrott kontrollerar man att det inte är
 
 ## Element (radiatorer) och termostater
 
-Tänk på att det är föreningen som äger och ansvarar för samtliga element (radiatorerna) – även de som finns inne i lägenheterna. Det innebär att det är föreningen som står för kostnader vid ventil och termostatbyte så länge som du själv inte gjort någon form av åverkan på dem.
+Tänk på att det är föreningen som äger och ansvarar för samtliga element (radiatorerna) -- även de som finns inne i lägenheterna. Det innebär att det är föreningen som står för kostnader vid ventil och termostatbyte så länge som du själv inte gjort någon form av åverkan på dem.
 
 Kontakta [Bredablick](/felanmalan/) för felanmälan av ett/flera element som inte fungerar som det ska, d.v.s. inte blir tillräckligt varmt, inte varmt alls eller det inte går att sänka värmen.
 
@@ -208,7 +208,7 @@ Fjärrvärme innebär att det kommer hett vatten från värmeverk till våra fas
 
 Läs gärna mer själv om fjärrvärme och eventuella avbrott på [Eons hemsida](https://www.eon.se/fjarrvarme).
 
-## Försäkring – fastighetsförsäkring
+## Försäkring -- fastighetsförsäkring
 
 Föreningens fastigheter är försäkrade hos Länsförsäkringar. I enlighet med våra stadgar tecknar medlem själv hemförsäkring samt bostadsrättstilläggsförsäkring.
 
@@ -225,7 +225,7 @@ För att koppla in en gasspis behöver ni göra två saker:
 
 ## Giftermål och partnerskap
 
-Föreningen får inte någon automatisk information vid giftermål/partnerskap samt vid skilsmässa – om inte er bank eller annan inkommer med handlingar.
+Föreningen får inte någon automatisk information vid giftermål/partnerskap samt vid skilsmässa -- om inte er bank eller annan inkommer med handlingar.
 
 För uppdatering av trapptavla, postbox, tidningshållare och porttelefon kontaktar ni [styrelsen](mailto:info@urbilden.se). Observera att denna uppdatering inte har något att göra med lägenhets- och medlemsregistret.
 
@@ -270,7 +270,7 @@ Det är vi medlemmar/boende som själv sköter om vår gästtoalett och ser till
 
 Gästtoaletten är beläget i källarplan i fastigheten på Sofielundsvägen och ingång sker via innergården. Dörrarna är låsta men öppnas med portnyckeln.
 
-Tänk att ni står på innergården och tittar mot fastigheten på Sofielundsvägen, titta sen längst ner till vänster (närmast Lantmannagatan). Här ser ni en källarnedgång med gallerdörr. Gå igenom denna dörr och titta direkt till vänster – öppna dörren – gå in några steg och titta till vänster igen.
+Tänk att ni står på innergården och tittar mot fastigheten på Sofielundsvägen, titta sen längst ner till vänster (närmast Lantmannagatan). Här ser ni en källarnedgång med gallerdörr. Gå igenom denna dörr och titta direkt till vänster -- öppna dörren -- gå in några steg och titta till vänster igen.
 
 ## Handdukstork
 
@@ -282,7 +282,7 @@ Text om bytesrummet.
 
 ### Hitta dit
 
-Tänk att ni står på innergården och tittar mot fastigheten på Sofielundsvägen, titta sen längst ner till vänster (närmast Lantmannagatan). Här ser ni en källarnedgång med gallerdörr. Gå igenom denna dörr och titta direkt till väster – här hittar ni bytesrummet.
+Tänk att ni står på innergården och tittar mot fastigheten på Sofielundsvägen, titta sen längst ner till vänster (närmast Lantmannagatan). Här ser ni en källarnedgång med gallerdörr. Gå igenom denna dörr och titta direkt till väster -- här hittar ni bytesrummet.
 
 ## Hobbyrummet TODO: stilisera
 
@@ -290,7 +290,7 @@ Som medlem/boende i brf Urbilden har man tillgång till vårt ”hobbyrum”. De
 
 ### Hitta dit
 
-Tänk att ni står på innergården och tittar mot fastigheten på Sofielundsvägen, titta sen längst ner till vänster (närmast Lantmannagatan). Här ser ni en källarnedgång med gallerdörr. Gå igenom denna dörr och titta direkt till höger – här hittar ni hobbyrummet.
+Tänk att ni står på innergården och tittar mot fastigheten på Sofielundsvägen, titta sen längst ner till vänster (närmast Lantmannagatan). Här ser ni en källarnedgång med gallerdörr. Gå igenom denna dörr och titta direkt till höger -- här hittar ni hobbyrummet.
 
 Vi passar även på att nämna att ni hittar föreningens gästtoalett genom dörren som är till vänster.
 
@@ -301,8 +301,8 @@ Vi passar även på att nämna att ni hittar föreningens gästtoalett genom dö
 *   Är det så att det ni ”pysslar” med i hobbyrummet varken för ljud ifrån sig och är ”doftfritt” är ni välkomna att använda det utöver ovanstående tider.
 
 ### Öppettider
-Vardagar: 09.00–18.00\
-Helger: 11.00–17.00 
+Vardagar: 09.00--18.00\
+Helger: 11.00--17.00 
 
 ## Inneboende
 
@@ -313,7 +313,7 @@ Däremot vill vi att ni meddelar föreningen om att vem som flyttar in så att v
 
 Föreningen uppdaterar inte trapptavla, postboxen samt tidningshållaren men självklart godkänner vi att ni själv sätter upp namn på er inneboende på postbox och tidningsstället. Detta ska dock göras snyggt och prydligt.
 
-Tänk också på att det är ni som ägare, enligt föreningens stadgar, som är ansvariga för de som vistas i er lägenhet, så informera er inneboende om vilka [ordnings– och trivselregler](/ordning-trivselregler) som gäller i föreningen.
+Tänk också på att det är ni som ägare, enligt föreningens stadgar, som är ansvariga för de som vistas i er lägenhet, så informera er inneboende om vilka [ordnings-- och trivselregler](/ordning-trivselregler) som gäller i föreningen.
 
 ## Lägenhetsnummer och LM-koden
 
@@ -323,7 +323,7 @@ Vi har märkt att en del medlemmar blandar ihop Lantmäteriets fyrsiffriga kod (
 
 Föreningen har dock sin egen lägenhetsnumrering enligt vår ekonomiska plan.
 
-*   Då vi har 117 lägenheter samt 4 lokaler i föreningen är ditt lägenhetsnummer på 1–3 siffror.
+*   Då vi har 117 lägenheter samt 4 lokaler i föreningen är ditt lägenhetsnummer på 1--3 siffror.
 *   Du kan bland annat hitta på det din postbox och ditt överlåtelseavtal.
 *   _Det är detta lägenhetsnummer du ska ange när du till exempel mejlar styrelsen eller gör felanmälan._
 
@@ -333,7 +333,7 @@ Föreningen har dock sin egen lägenhetsnumrering enligt vår ekonomiska plan.
 *   LM-koden ingår således i ett nationellt register. Numret består av fyra siffror som visar på vilken våning och var på våningen lägenheten finns. Det saknar alltså mening om det inte används tillsammans med en adress.
 *   LM-koden använder ni vid era kontakter med företag och myndigheter, till exempel Skatteverket, Bolagsverket, och vid adressändring. Just din LM-kod hittar du nere i trapptavla.
 
-## Medlemskap – inträde/utträde ur brf Urbilden
+## Medlemskap -- inträde/utträde ur brf Urbilden
 
 Inte att förväxlas med [inträde/utträde vid överlåtelse](/maklare).
 
@@ -344,7 +344,7 @@ c/o Bredablick Förvaltning
 Box 243  
 201 22 Malmö
 
-## Motioner – inför årsmöte
+## Motioner -- inför årsmöte
 
 Du/Ni som medlem/-mar i brf Urbilden har rätt att lämna ett eller flera förslag till årsstämman (årsmötet). Dessa kallas för motion. Enligt våra stadgar ska en motion alltid behandlas på årsstämman dit alla medlemmar är inbjudna och har rätt att vara med och fatta beslut.
 
@@ -381,7 +381,7 @@ Som medlem har man rätt att låta sig representeras av sin make, registrerad pa
 
 Tänk på att ombudet måste ha en fullmakt från medlem. En fullmakt är en undertecknad handling som ger en person, fysisk eller juridisk, rätt att göra något för någon annans räkning.
 
-Fullmakten ska innehålla lägenhetsnummer (1–3 siffror/ej fyrasiffrig), adress, namn samt personnummer samt namn och personnummer på den som innehar fullmakten. För mer information om lägenhetsnummer se här i medlemshandboken under lägenhetsnummer.
+Fullmakten ska innehålla lägenhetsnummer (1--3 siffror/ej fyrasiffrig), adress, namn samt personnummer samt namn och personnummer på den som innehar fullmakten. För mer information om lägenhetsnummer se här i medlemshandboken under lägenhetsnummer.
 
 Man måste ange vad fullmakten avser, i detta fall rör fullmakten ett årsmöte. Exempel på text:
 
@@ -405,31 +405,31 @@ Tänk på att anmäla vid ändringar. Glöm inte att ange namn, lägenhetsnummer
 
 ## Radon
 
-Ibland får vi frågor gällande mätning av radon i föreningens två fastigheter. Under maj månad 2019 gjordes en mätning som uppvisade värden på 20-30 Bq/m3.
+Ibland får vi frågor gällande mätning av radon i föreningens två fastigheter. Under maj månad 2019 gjordes en mätning som uppvisade värden på 20--30 Bq/m³.
 
-Riktvärdet för radon i inomhusluften är 200 Bq/m3 vilket innebär att de värden som uppmätes hos oss ligger långt under riktvärdet för radon i inomhusluft och därmed finns det inget behov av en så kallad radonsanering.
+Riktvärdet för radon i inomhusluften är 200 Bq/m³ vilket innebär att de värden som uppmätes hos oss ligger långt under riktvärdet för radon i inomhusluft och därmed finns det inget behov av en så kallad radonsanering.
 
 Vill ni veta mer kring radon så hänvisar vi till [Boverket](https://www.boverket.se/sv/byggande/halsa-och-inomhusmiljo/radon/) och [Malmö stad](https://malmo.se/Service/Bygga-och-bo/Inomhusmiljo/Radon.html).
 
-## ~~Renovering – vilka regler finns det?~~
+## ~~Renovering -- vilka regler finns det?~~
 
 **Nya regler har tillkommit avseende renovering/förändring av lägenheten. Det innebär att förutom att man precis som tidigare, måste ansöka om tillstånd vid flytt av bärande väggar samt flytt av rör och ledningar, även behöver man ansöka om tillstånd för förändringar/flytt av icke-bärande väggar.**
 
-**Vi hänvisar till sidan [Om renovering](/om_renovering/) där man kan hitta vad som gäller kring en renovering – förändring av lägenheten och även ladda ner ansökningsblanketten.** 
+**Vi hänvisar till sidan [Om renovering](/om_renovering/) där man kan hitta vad som gäller kring en renovering -- förändring av lägenheten och även ladda ner ansökningsblanketten.** 
 
 Glöm inte att föreningen även kan ersätta byte av golvbrunn. Se under ”Golvbrunn” för vad som gäller.
 
 **Ordningsregler vid renovering**
 
-_Informera grannar:_ Kommer man genomföra en renovering som kommer att höras under en längre tid – vilket då även innebär att dina grannar kan störas ska man sätta upp upp en tydlig lapp i de trapphus där man har grannar som kan bli störda. Här informerar man om att det pågår en renovering i lgh. X och att renoveringen kan komma att ta X lång tid. Ange gärna kontaktuppgifter till er själv eller hantverkare så att era grannar kan komma i kontakt med er om det är något de undrar över.
+_Informera grannar:_ Kommer man genomföra en renovering som kommer att höras under en längre tid -- vilket då även innebär att dina grannar kan störas ska man sätta upp upp en tydlig lapp i de trapphus där man har grannar som kan bli störda. Här informerar man om att det pågår en renovering i lgh. X och att renoveringen kan komma att ta X lång tid. Ange gärna kontaktuppgifter till er själv eller hantverkare så att era grannar kan komma i kontakt med er om det är något de undrar över.
 
 Lägg även ett mejl till styrelsen också så vet vi vad som är på gång om någon granne hör av sig.
 
-_Tider för renovering:_ Vardagar är det ok att renovera mellan kl. 07.00 – 20.00, dock inte sammanhängande tid. Helger bör man avvakta med oväsen till kl. 12.00 och avsluta 18.00. Tänk på att era grannar behöver få möjlighet till vila.
+_Tider för renovering:_ Vardagar är det ok att renovera kl. 07.00--20.00, dock inte sammanhängande tid. Helger bör man avvakta med oväsen till kl. 12.00 och avsluta 18.00. Tänk på att era grannar behöver få möjlighet till vila.
 
 ## Röstberättigad på årsmöte
 
-För att vara röstberättigad till ett årsmöte behöver man vara medlem eller vara ett ombud för en medlem. Varje medlem en röst. Är det två eller fler ägare till en lägenhet innehav man endast en röst – d.v.s. en röst per lägenhet.
+För att vara röstberättigad till ett årsmöte behöver man vara medlem eller vara ett ombud för en medlem. Varje medlem en röst. Är det två eller fler ägare till en lägenhet innehav man endast en röst -- d.v.s. en röst per lägenhet.
 
 Tänk på att röstberättigad är endast den medlem som har fullgjort sina förpliktelser mot föreningen, det vill säga t.ex. att man måste betalat sin månadsavgift (eller fått beviljat anstånd) och det får inte heller finnas andra ärenden av vikt  där medlem inte skött sina skyldigheter enligt våra stadgar.
 
@@ -459,17 +459,17 @@ Först och främst för att allt onödigt materiel i trapphusen utgör en allvar
 
 Tänk också på att våra trapphus håller längre och även minimerar onödiga kostar om man inte törnar emot våra väggar och rädd om lägenhetsdörrar och räckena också.
 
-## TV – digitalt grundutbud
+## TV -- digitalt grundutbud
 
 Föreningen har ramavtal för grundutbudet via digital-tv med Tele2. Mer information om grundutbudet kan ni hitta på [Tele2 hemsida](https://www.tele2.se/kundservice/tv-och-play/kom-i-gang-med-grundutbudet).
 
 ## Tvättstugorna
 
-Varje fastighet har tillgång till 2 stycken tvättstugor vardera. I varje tvättstuga finns två tvättmaskiner, en torktumlare och ett torkskåp.
+Varje fastighet har tillgång till två stycken tvättstugor vardera. I varje tvättstuga finns två tvättmaskiner, en torktumlare och ett torkskåp.
 
 Utanför respektive tvättstuga finns bokningstavla och bokningen gäller då endast gäller för respektive tvättstuga. Tvättstugorna städas 1 gång i veckan men då vi alla gemensamt har ansvar för vår förenings allmänna ytor ska även du själv städa efter dig. Det innebär att du torkar av tvättmaskinerna, alltid tar bort ”luddet” i torktumlare samt torkskåp efter ditt tvättpass samt sopar och våtmoppar vid behov.
 
-## ~~Väggar – renovering~~
+## ~~Väggar -- renovering~~
 
 Förändring av bärande väggar, icke-bärande väggar samt annan förändring av ventilation och ledningar kräver tillstånd från styrelsen. Se under ”Renovering” för mer information.
 

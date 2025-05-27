@@ -27,11 +27,11 @@ Värt att veta är att även om en styrelse inte har en reglerad tystnadsplikt s
 
 Bostadsrättsföreningen Urbilden förvaltas av en teknisk och ekonomisk förvaltning, Bredablick Förvaltning. Det innebär att vi tecknat ett så kallat personuppgiftsbiträdesavtal med vår förvaltare för att ge dem möjlighet att bl.a. föra lägenhets- och kundregister.
 
-## 2. Kontaktuppgifter – Personuppgifter
+## 2. Kontaktuppgifter -- Personuppgifter
 
 Inga personuppgifter samlas för nuvarande in genom vår hemsida.
 
-### 2.1 Information personuppgifter – medlemskontakt
+### 2.1 Information personuppgifter -- medlemskontakt
 
 För att styrelsen och vår förvaltare ska kunna kommunicera med medlemmar och andra boende samlas medlemmarnas e-postadresser in automatiskt av vår e-postklient vid kontakt med föreningen. Vid behov samlas även personuppgifter såsom namn, telefonnummer och lägenhetsnummer också in.
 

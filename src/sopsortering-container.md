@@ -17,4 +17,4 @@ Föreningen tar en gång i kvartalet in en container till gården. På så vis f
 
 Föreningen annonser inte detta på annat sätt då även icke-behöriga då gärna ”passar på” att använda sig av containern.
 
-Förutom vår container kan vi tipsa om [Vasyds Pop-up Returen](https://www.vasyd.se/Artiklar/Pop-up-Returen) – en återanvändnings- och återvinningsstation som stannar på närliggande ställen i Malmö.
+Förutom vår container kan vi tipsa om [Vasyds Pop-up Returen](https://www.vasyd.se/Artiklar/Pop-up-Returen) -- en återanvändnings- och återvinningsstation som stannar på närliggande ställen i Malmö.

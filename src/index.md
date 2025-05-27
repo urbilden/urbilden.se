@@ -19,7 +19,7 @@ layout: layouts/home.html
   <div class="stack">
     <h2>Välkomna till brf Urbilden!</h2>
 
-    <p>Bostadsrättsföreningen Urbilden består av två charmiga fastigheter som är byggda i slutet av 30-talet i norra Sofielund. Här hittar du en underbar innergård med lummigt gröna ytor – vår egen oas mitt i staden.</p>
+    <p>Bostadsrättsföreningen Urbilden består av två charmiga fastigheter som är byggda i slutet av 30-talet i norra Sofielund. Här hittar du en underbar innergård med lummigt gröna ytor -- vår egen oas mitt i staden.</p>
 
     <p>Föreningen bildades 1936 och de två fastigheterna, med beteckningen Urbilden 7, stod klara 1937.</p>
   </div>

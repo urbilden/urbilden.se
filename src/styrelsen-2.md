@@ -9,7 +9,7 @@ eleventyNavigation:
 
 ## Ledamöter
 
-- Daniel Abrahamsson – ordförande
+- Daniel Abrahamsson -- ordförande
 - Vera Skans Mächs
 - Sofia Gawlitza
 - Miró Lieberman Allard

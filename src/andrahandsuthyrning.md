@@ -16,7 +16,7 @@ Den som hyr ut sin lägenhet i andrahand räknas som hyresvärd. Det finns såle
 
 ## Inneboende eller andrahandsuthyrning?
 
-Man behöver inte söka om tillstånd vid inneboende men det är viktigt att man förstår vad det är som räknas som inneboende. För att räknas som inneboende skall du själv, för det mesta, vara boende i din lägenhet eller om inte annat befinna dig fysiskt på plats i din lägenhet ca 50 % av tiden (3–4 dagar i veckan). Om det inte är fallet så räknas det i stället som att ni hyrt ut/lånat ut er lägenhet till självständigt brukande över lägenheten och då behöver ni snarast inkomma med ansökan om uthyrning i andrahand.
+Man behöver inte söka om tillstånd vid inneboende men det är viktigt att man förstår vad det är som räknas som inneboende. För att räknas som inneboende skall du själv, för det mesta, vara boende i din lägenhet eller om inte annat befinna dig fysiskt på plats i din lägenhet ca 50 % av tiden (3--4 dagar i veckan). Om det inte är fallet så räknas det i stället som att ni hyrt ut/lånat ut er lägenhet till självständigt brukande över lägenheten och då behöver ni snarast inkomma med ansökan om uthyrning i andrahand.
 
 Man kan även tänka så här: Du ska själv ha totalt fri tillgång till din lägenhet, du ska alltså kunna komma och gå precis som du vill. Den inneboende har oftast själv inte total fri tillgång till hela lägenheten utan det finns ytor inneboende inte har tillgång till.
 
@@ -65,7 +65,7 @@ För att få hyra ut i andrahands krävs att ni
 Ha även följande i åtanke:
 
 - Det är viktigt att hyresgästen har en hemförsäkring (samt att ni har en bostadsrättstilläggsförsäkring). Hör med ert försäkringsbolag vad som gäller för er.
-- Gällande trapptavla, postbox och tidningshållare: hyresgästen sätter själv sitt namn på tom yta på postboxen – inte ovanför ägarens namn. Det går att sätta namn på tidningshållare, dock ska det gå att ta bort utan att åstadkomma skada. Föreningen uppdaterar inte trapptavlorna, däremot uppdaterar vi porttelefonsystemet.
+- Gällande trapptavla, postbox och tidningshållare: hyresgästen sätter själv sitt namn på tom yta på postboxen -- inte ovanför ägarens namn. Det går att sätta namn på tidningshållare, dock ska det gå att ta bort utan att åstadkomma skada. Föreningen uppdaterar inte trapptavlorna, däremot uppdaterar vi porttelefonsystemet.
 - Föreningen godkänner inte så kallade tredjehandsuthyrning, det vill säga att er hyresgäst i sin tur hyr ut lägenheten. Sker detta kommer pågående andrahandsuthyrning avslutas med omedelbar verkan och det kan även vara skäl för uppsägning av medlemskapet i föreningen för lägenhetsinnehavaren.
 - Föreningen godkänner inte uthyrning till bostadsförmedlare eller juridisk person.
 - Informera hyresgästen om att föreningen ibland går ut med information i trapphus samt i postboxen och att det är viktigt att informationen hörsammas och att ni får besked om vad som informerats.
@@ -87,7 +87,7 @@ Exempeluträkning: Prisbasbeloppet för år 2024 är 57 300 kr. 10 % av de
 
 Nuvarande bostadsrättshavare: samtliga ägare ska fyllas i här.
 
-Lägenhetsnummer: ert lägenhetsnummer (1–3 siffror) hittar ni enklast på månadsfakturan, postlåda eller på överlåtelseavtalet.
+Lägenhetsnummer: ert lägenhetsnummer (1--3 siffror) hittar ni enklast på månadsfakturan, postlåda eller på överlåtelseavtalet.
 
 Hyresgäst(-er): här fyller ni i samtliga hyresgäster, d.v.s. uppgifter på samtliga som kommer att bo i er lägenhet.
 

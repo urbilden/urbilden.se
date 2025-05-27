@@ -64,7 +64,7 @@ Har säljaren bett Eon att stänga av elmätaren måste ni som köpare kontakta 
 
 Har ni helt missat att teckna elnätsavtal och elavtal vid inflytt kan inte föreningen hjälpa er utan detta måste ni sköta själv. Det finns alltså ingen poäng i att kontakta oss eller vår fastighetsjour för detta. Skulle ni göra så kommer ni debiteras eventuella jourkostnader. Däremot ska ni som sagt kontakta Bredablick Förvaltning för att sätta igång er elmätare (dock ej jouren). Se stycket ovan.
 
-## Flyttbil – innergården
+## Flyttbil -- innergården
 
 Vi har parkeringsförbud på innergården men vid av- och pålastning gör vi ett undantag.  Däremot godkänner vi inte att man låter flyttbilar eller andra bilar stå där längre än vad som krävs för flytten. För att komma in på gården via de stora grindarna använder du din portnyckel.
 
@@ -74,7 +74,7 @@ Enligt Folkbokföringslag (1991:481) §§ 6-7 skall man folkbokföras på den ad
 
 Är det så att du av någon anledning inte har möjlighet att folkbokföra dig i din lägenhet ber vi dig kontakta styrelsen med information om detta.
 
-För information kring folkbokföring samt adressändring och vilka uppgifter som efterfrågas se ovan under ”Adressändring – LM-koden”.
+För information kring folkbokföring samt adressändring och vilka uppgifter som efterfrågas se ovan under ”Adressändring -- LM-koden”.
 
 ## Försäkring
 

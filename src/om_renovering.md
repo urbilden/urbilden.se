@@ -23,7 +23,7 @@ Om man som medlem inte sedan tidigare är insatt i dessa förändringar och den 
 Ansökningsblankett renovering
 {% endcta %}
 
-## Golvbrunnsbyte – möjlighet till ekonomisk ersättning
+## Golvbrunnsbyte -- möjlighet till ekonomisk ersättning
 
 Vid golvbrunnsbyte gäller att man använder sig av certifierade våtrumsföretag (se mer information i ansökningsblanketten vid renoveringar) och för att föreningen skall ersätta enligt nedan behöver ni även läsa våra rutiner för ansökan om ersättning för byte av golvbrunn. Enligt tidigare taget stämmobeslut står föreningen för byte av golvbrunn. Vill man själv utföra byte av golvbrunn kan man ansöka om ersättning från föreningen. Ersättning ligger på upp till 5 000 kr. Det innebär att föreningen inte kan betala ut mer än vad själva golvbrunnsbytet kostat (det som står specificerat på fakturan) och inte mer än upp till 5 000 kr. Ansökan om ersättning skall komma in till oss senast sex månader efter utfört arbete annars har föreningen inte någon möjlighet att betala ut ersättningen.
 

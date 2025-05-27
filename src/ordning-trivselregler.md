@@ -11,11 +11,11 @@ tags: ['featured']
 
 Nedan hittar ni vilka ordnings- och trivselregler som gäller för föreningen. Dessa kommer i sin tur ur föreningens stadgar som man genom sin ansökan om medlemskap i föreningen godkänt att respektera och följa. Genom att följa dessa kan vi tillsammans skapa en trivsam och trygg miljö för alla boende!
 
-## Var omtänksam – respektera dina grannar!
+## Var omtänksam -- respektera dina grannar!
 
 För inte oväsen efter kl. 22.00 (vardagar) och 01.00 (helger).
 
-Om du ska ha fest, meddela dina grannar – det ökar förståelsen. Tänk på att fester även kan störa grannar i trapphusen bredvid. Observera att det inte är tillåtet att ha högljudda fester där man i ett flertal timmar stör sina grannar och det är inte heller tillåtet att ha återkommande fester och/eller spela musik med hög ljudnivå.
+Om du ska ha fest, meddela dina grannar -- det ökar förståelsen. Tänk på att fester även kan störa grannar i trapphusen bredvid. Observera att det inte är tillåtet att ha högljudda fester där man i ett flertal timmar stör sina grannar och det är inte heller tillåtet att ha återkommande fester och/eller spela musik med hög ljudnivå.
 
 Lägenheterna är lyhörda och ljudnivån bör sänkas redan vid 20.00. Högljudd renovering får alltså inte förekomma efter kl. 20.00. Ta hänsyn till de som bor runt dig, tänk på att dina grannar hör en stor andel av förekommande ljud i din lägenhet, såsom musik, dusch/bad, matberedare, dammsugning, osv. När det gäller eventuella disk- och tvättmaskiner i lägenheten ska dessa inte köras efter kl. 22.00 om de inte är rejält tystgående.
 
@@ -25,7 +25,7 @@ Nedan har vi tagit fram några av de viktigaste trivselreglerna i föreningen. D
 
 Är du i behov av att köra in din bil på gården vid inflyttning/flytt går detta naturligtvis bra.
 
-Tänk bara på att all långtidsparkering inne på gården är förbjuden – fastighetsskötare och utryckningsfordon undantaget. Om du vill ha mer information kring parkering ber vi er se i vår [medlemshandbok](/medlemshandbok-om-foreningen#parkering).
+Tänk bara på att all långtidsparkering inne på gården är förbjuden -- fastighetsskötare och utryckningsfordon undantaget. Om du vill ha mer information kring parkering ber vi er se i vår [medlemshandbok](/medlemshandbok-om-foreningen#parkering).
 
 ### Flytt av mindre möblemang på innergården
 
@@ -44,15 +44,15 @@ Möblerna står på avsedd plats då dessa är mest lämpliga med hänsyn till b
 ### Grillplatsen
 
 {% info %}
-Grillplatsen är inte avsedd för att hålla större fester utan för enklare och lugnare sammankomster med mindre antal deltagare, ca 10 personer (exklusive barn). Musik tillåts inte. Inga undantag – dessa regler gäller oavsett vad din sammankomst gäller!
+Grillplatsen är inte avsedd för att hålla större fester utan för enklare och lugnare sammankomster med mindre antal deltagare, ca 10 personer (exklusive barn). Musik tillåts inte. Inga undantag -- dessa regler gäller oavsett vad din sammankomst gäller!
 {% endinfo %}
 
 Har ni frågor eller funderingar kring bokning/användning av grillplatsen ber vi er att kontakta oss. När ni bokar godkänner ni att ni förstår och följer föreningens regler.
 
 För bokning av grillplatsen gäller följande tider:
 
-- söndag till torsdag kl. 10.00–22.00, ljudnivån sänks vid 20.00.       
-- fredag till lördag kl. 11.00–24.00
+- söndag till torsdag kl. 10.00--22.00, ljudnivån sänks vid 20.00.       
+- fredag till lördag kl. 11.00--24.00
 
 Observera att dessa tider gäller för bokning av grillen och vid sammankomster. Vill man bruka grillplatsen för att äta sin frukost i lugn och ro så är det självklart helt okej att göra detta innan ovanstående tider. Kontrollera bara att ingen bokat grillplatsen. Bokningslista för grillplatsen finns i ”kuddlådan”.
 
@@ -76,7 +76,7 @@ Endast bokad grillplats får användas för sammankomster, det vill säga som �
 
 ### Källare- och vindsutrymmen
 
-Du ansvar för ditt förråd och dess innehåll – förråden skall låsas och hållas i ordning.
+Du ansvar för ditt förråd och dess innehåll -- förråden skall låsas och hållas i ordning.
 
 Använd således inte förråd som inte tillhör din lägenhet. Förvara inte lättantändliga material och kom ihåg att det är förbjudet att lagra skräp i förrådet. Undvik också att förvara värdefulla föremål, då det tyvärr alltid finns en risk för inbrott.
 
@@ -88,7 +88,7 @@ På lappen informerar man om att det pågår en renovering i lgh. X och att reno
 
 Lägg även ett mejl till styrelsen också så vet vi vad som är på gång om någon granne hör av sig. Tänk på att större renoveringar, t.ex. förändring av bärande väggar, icke-bärande väggar samt annan förändring av ventilation och ledningar kräver tillstånd från styrelsen. Se i medlemshandboken under avsnittet om renovering för mer information.
 
-Vid renovering gäller självklart lite andra tider för oväsen. Vardagar är det ok att renovera mellan kl. 07.00–20.00, dock inte sammanhängande tid. Helger bör man avvakta med oväsen till kl. 12.00 och avsluta 18.00. Tänk på att era grannar behöver få möjlighet till vila.
+Vid renovering gäller självklart lite andra tider för oväsen. Vardagar är det ok att renovera mellan kl. 07.00--20.00, dock inte sammanhängande tid. Helger bör man avvakta med oväsen till kl. 12.00 och avsluta 18.00. Tänk på att era grannar behöver få möjlighet till vila.
 
 ### Rastning av hund
 
@@ -136,7 +136,7 @@ Om du försökt tala med din granne, t.ex. om hen har en högljudd fest men inte
 
 Detta gäller vid användning av störningsjouren.
 
-- Det går inte att använda störningsjouren anonymt – dock får inte den/dem som stör någon information om vem som ringt jouren.
+- Det går inte att använda störningsjouren anonymt -- dock får inte den/dem som stör någon information om vem som ringt jouren.
 - Använder ni er av störningsjouren kräver föreningen även att ni lägger ett mejl till info@urbilden.se och informerar om vad som skett. Styrelsen behöver detta underlag för att ta beslut om ev. åtgärder. Används störningsjouren utan att ni informerar oss kan ni ersättningsskyldiga för eventuella kostnader.
 
 Ni når jouren genom att ringa föreningens förvaltning.

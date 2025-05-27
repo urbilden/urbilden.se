@@ -14,7 +14,7 @@ Behöver ni byta låscylinder väljer ni även här om ni vill åtgärda själv 
 
 ## Passagebrickor/taggar
 
-Till varje lägenhet ska det ingå tre stycken passagebrickor – även kallade taggar. Dessa är en värdehandling vilket innebär:
+Till varje lägenhet ska det ingå tre stycken passagebrickor -- även kallade taggar. Dessa är en värdehandling vilket innebär:
 
 - om de blir skadade eller går sönder kan ni kvittera ut en ny utan extra kostnad
 - tappar ni dem eller ni vill kvittera ut extra brickor kostar dessa 200 kr/st. Avgiften läggs på er månadsavgift

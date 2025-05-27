@@ -25,4 +25,4 @@ Fastighetsbeteckning: Urbilden 7
 Äkta bostadsrättsförening: Ja\
 Är tomten friköpt: Ja
 
-Vill du veta mer om föreningen har vi samlat överskådlig information i vårt dokument Information – brf Urbilden. Dokumentet fungerar även fint som underlag vid en lägenhetsförsäljning.
+Vill du veta mer om föreningen har vi samlat överskådlig information i vårt dokument Information -- brf Urbilden. Dokumentet fungerar även fint som underlag vid en lägenhetsförsäljning.
