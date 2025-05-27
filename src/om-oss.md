@@ -19,10 +19,10 @@ Urbilden bildades 1936 och de två fastigheterna, med beteckningen Urbilden 7 st
 
 ## Fakta
 
-Organisationsnummer: {{ metadata.organisationsnummer }}\
-Fastighetsbeteckning: Urbilden 7
+**Organisationsnummer**: {{ metadata.organisationsnummer }}\
+**Fastighetsbeteckning**: Urbilden 7
 
-Äkta bostadsrättsförening: Ja\
-Är tomten friköpt: Ja
+**Äkta bostadsrättsförening**: Ja\
+**Friköpt tomp**: Ja
 
 Vill du veta mer om föreningen har vi samlat överskådlig information i vårt dokument Information -- brf Urbilden. Dokumentet fungerar även fint som underlag vid en lägenhetsförsäljning.
