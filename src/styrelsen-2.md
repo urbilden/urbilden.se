@@ -17,6 +17,10 @@ Den nuvarande styrelsen består av:
 | Miró Lieberman Allard            |                 |
 | Pauline Olsson Ghoreishi         |                 |
 
+<figure>
+  <img src="/assets/images/Styrelsen.jpg" alt="Styrelsen på innergårdan.">
+  <figcaption>Från väster: Sofia, Vera, Peter, Daniel, Amanda, Miró, Pauline</figcaption>
+</figure>
 
 ## Lite om styrelsen
 
@@ -30,7 +34,7 @@ Vi som är med i styrelsen är precis som ni ”vanliga” bostadsrättsinnehava
 
 ## Kontakt med styrelsen
 
-Styrelsen sammanträder ca. en gång i månaden och våra styrelsemöten hålls i föreningens styrelserum på källarplan, Sofielundsvägen 48A.
+Styrelsen sammanträder ca en gång i månaden och våra styrelsemöten hålls i föreningens styrelserum på källarplan, Sofielundsvägen 48A.
 
 Har du några frågor eller förslag på någonting som rör föreningen får du gärna kontakta oss i styrelsen. Detta görs enklast genom e-post, vilket läses en gång i veckan. Tänk på att du kan hitta mycket matnyttig information här på hemsidan.
 
