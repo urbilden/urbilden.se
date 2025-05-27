@@ -1,7 +1,8 @@
 ---
-title: Nyhetsbrev – april
+title: April, 2025
 month: april
 year: 2025
+date: 2025-04-01
 ---
 
 ## VA SYD Popup-returen

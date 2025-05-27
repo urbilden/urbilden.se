@@ -1,7 +1,8 @@
 ---
 month: maj
 year: 2025
-title: Nyhetsbrev – maj
+title: Maj, 2025
+date: 2025-05-01
 ---
 
 ## Behöver du ett till förråd?
