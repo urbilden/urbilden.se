@@ -26,6 +26,10 @@ Vi som är med i styrelsen är precis som ni ”vanliga” bostadsrättsinnehava
 
 Är du nyfiken på styrelsearbete och vill veta mer är du varmt välkommen att kontakta valberedningen!
 
+{% cta "mailto:valberedningen@urbilden.se" %}
+{% include "partials/envelope-solid.svg" %} valberedningen@urbilden.se
+{% endcta %}
+
 ## Kontakt med styrelsen
 
 Styrelsen sammanträder ca. en gång i månaden och våra styrelsemöten hålls i föreningens styrelserum på källarplan, Sofielundsvägen 48A.
