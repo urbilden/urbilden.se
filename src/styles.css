@@ -564,7 +564,7 @@ header button {
   border: 2px solid transparent;
   cursor: pointer;
   font-weight: 600;
-  padding: var(--space-2xs) var(--space-xs);
+  padding: var(--space-s) var(--space-xs);
 
   &[aria-expanded="true"] {
     background-color: var(--color-primary-100);
