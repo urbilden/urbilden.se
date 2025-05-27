@@ -7,18 +7,16 @@ eleventyNavigation:
   order: 3
 --- 
 
-## Ledamöter
+Den nuvarande styrelsen består av:
 
-- Daniel Abrahamsson -- ordförande
-- Vera Skans Mächs
-- Sofia Gawlitza
-- Miró Lieberman Allard
-- Pauline Olsson Ghoreishi
+| Ledamöter                        | Suppleanter     |
+| ---                              | ---             |
+| Daniel Abrahamsson -- ordförande | Peter Ebbesson  | 
+| Vera Skans Mächs                 | Amanda Patrolea | 
+| Sofia Gawlitza                   |                 |
+| Miró Lieberman Allard            |                 |
+| Pauline Olsson Ghoreishi         |                 |
 
-## Suppleanter
-
-- Peter Ebbesson
-- Amanda Patrolea
 
 ## Lite om styrelsen
 

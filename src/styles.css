@@ -605,6 +605,24 @@ figcaption {
   padding-block-start: var(--space-xs);
 }
 
+/* Tables */
+table, th, td {
+  border: none;
+}
+
+table {
+  border-block: 1px solid;
+}
+
+thead {
+  border-block-end: 1px solid;
+}
+
+th {
+  text-align: left;
+}
+
+
 
 /* button:hover { */
 /* background-color: var(--color-primary-shade); */
