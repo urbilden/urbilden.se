@@ -1,9 +1,6 @@
 ---
 title: Integritetspolicy
 layout: layouts/article.html
-eleventyNavigation:
-  key: Integritetspolicy
-  parent: Föreningen
 --- 
 
 
