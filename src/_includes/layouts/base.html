@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta theme-color="#ffa348">
+    <meta name="theme-color" content="#ffa348">
     <meta name="color-scheme" content="dark light">
     <meta name="description" content="{{ metadata.description }}">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -13,16 +13,13 @@
   </head>
   <body>
     {% include "partials/site-head.html" %}
-
     <script type="module">
       await import('/pagefind/pagefind-highlight.js');
       new PagefindHighlight({ highlightParam: "highlight" });
     </script>
-
     <main tabindex="-1" id="main-content">
-        {{ content | safe }}
+      {{ content | safe }}
     </main>
-
     {% include "partials/site-foot.html" %}
   </body>
 </html>
