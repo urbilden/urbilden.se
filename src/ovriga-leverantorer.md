@@ -30,4 +30,4 @@ Trapp- och tvättstugestädning utförs av städfirman Klart Rent och sker på t
 
 ## Internet och tv
 
-Föreningen har avtal för grundutbud via digital-TV (kabel) och internet med Tele2. Ni kan själv se vilka kanaler som ingår i grundutbudet för just vår adress på [Tele2:s hemsida](https://www.tele2.se/tv/gruppavtal). 
+Föreningen har avtal för grundutbud via digital-TV (kabel) och internet med Tele2. Ni kan själv se vilka kanaler som ingår i grundutbudet för just vår adress på [Tele2:s hemsida](https://www.tele2.se/tv/kollektivt-tv-utbud). 
