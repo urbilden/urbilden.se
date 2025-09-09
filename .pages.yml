@@ -1,5 +1,5 @@
 media:
-  input: src/media
+  input: src/assets
   output: /media
 content:
   - name: nyhetsbrev
