@@ -18,6 +18,14 @@ export default function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(IdAttributePlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    htmlOptions: {
+      imgAttributes: {
+        loading: "lazy",
+        decoding: "async",
+      },
+    },
+  });
 
   // Collections
   eleventyConfig.addCollection("reports", (collection) => {
