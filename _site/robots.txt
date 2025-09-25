@@ -1,4 +1,0 @@
-Sitemap: https://urbilden.se/sitemap.xml
-
-User-agent: *
-Disallow:
