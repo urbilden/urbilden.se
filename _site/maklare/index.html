@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffa348">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Bostadsrättsförening i norra Sofielund.">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>För mäklare</title>
+  </head>
+  <body>
+    <script src="/pagefind/pagefind-ui.js"></script>
+
+<a href="#main-content" class="skip-link">Hoppa till innehåll</a>
+
+<header>
+  <div class="center" style="--measure: 90ch">
+    <!--  -->
+    <!-- <a class="home" href="/" aria-label="Hem"> -->
+    <!--  -->
+    <!-- </a> -->
+    <!--  -->
+    <a class="home" href="/" aria-label="Hem">
+      Brf Urbilden
+    </a>
+    <!--  -->
+
+    
+    <nav class="head-nav" aria-label="Huvudsaklig">
+  
+  <button hidden="" aria-expanded="false" aria-label="Visa navigeringsmeny" type="button" class="nav-button">
+    <span>Meny</span>
+  </button>
+  
+  <div class="nav">
+    
+    <div class="stack">
+        <h2 id="foervaltning">Förvaltning</h2>
+        <ul class="stack">
+          <li>
+            <a href="/felanmalan/">Felanmälan</a>
+          </li>
+          <li>
+            <a href="/ekonomi/">Ekonomi</a>
+          </li>
+          <li aria-current="page">
+            <a href="/maklare/">För mäklare</a>
+          </li>
+          <li>
+            <a href="/ovriga-leverantorer/">Övriga fastighetstjänster</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="boendeinformation">Boendeinformation</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om_renovering/">Om renovering</a>
+          </li>
+          <li>
+            <a href="/andrahandsuthyrning/">Andrahandsuthyrning</a>
+          </li>
+          <li>
+            <a href="/ordning-trivselregler/">Ordnings- och trivselregler</a>
+          </li>
+          <li>
+            <a href="/checklista_tilltrade_flytt/">Nyinflyttad?</a>
+          </li>
+          <li>
+            <a href="/nycklar/">Nycklar och taggar</a>
+          </li>
+          <li>
+            <a href="/sopsortering-container/">Sopsortering och container</a>
+          </li>
+          <li>
+            <a href="/medlemshandbok-om-foreningen/">Medlemshandbok</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="foereningen">Föreningen</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om-oss/">Om oss</a>
+          </li>
+          <li>
+            <a href="/stadgar/">Stadgar</a>
+          </li>
+          <li>
+            <a href="/arsredovisningar/">Årsredovisningar</a>
+          </li>
+          <li>
+            <a href="/styrelsen-2/">Styrelsen</a>
+          </li>
+          <li>
+            <a href="/lokaler/">Lokaler</a>
+          </li>
+          <li>
+            <a href="/valberedning/">Valberedning</a>
+          </li>
+          <li>
+            <a href="/fastighetsagare-sofielund/">Fastighetsägare BID Sofielund</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <search id="search">
+      <button hidden="" aria-expanded="false" aria-label="Visa sökmeny" type="button" class="search-button">
+        <svg aria-hidden="true" focusable="false" class="search-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8"></circle>
+          <line x1="16" y1="16" x2="22" y2="22"></line>
+        </svg>
+        <!-- <div aria-hidden="true" focusable="false" class="cancel-icon">×</div> -->
+        <svg aria-hidden="true" focusable="false" class="cancel-icon" fill="none" stroke="currentColor" stroke-width="3" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="4" x2="20" y2="20"></line>
+          <line x1="20" y1="4" x2="4" y2="20"></line>
+        </svg>
+      </button>
+    </search>
+
+    <!--  -->
+    <!-- <h1>Brf Urbilden</h1> -->
+
+    <!-- <div id="search-main"></div> -->
+
+    <!-- <script> -->
+    <!-- window.addEventListener('DOMContentLoaded', (event) => { -->
+    <!-- new PagefindUI({element: "#search-main", showSubResults: true, highlightParam: "highlight"}); -->
+    <!-- }); -->
+    <!-- </script> -->
+    <!--  -->
+
+  </div>
+</header>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // Add search UI
+    new PagefindUI({element: "#search", showSubResults: true, highlightParam: "highlight"});
+
+    // Set up variables for navigation toggle
+    const navButton = document.querySelector(".nav-button");
+    navButton.hidden = false;
+
+    // Set up variables for search toggle
+    const searchButton = document.querySelector(".search-button");
+    searchButton.hidden = false;
+
+    // Add event listeners for toggles
+    navButton.addEventListener('click', (e) => {
+      const isExpanded = navButton.getAttribute("aria-expanded") === "true";
+      navButton.setAttribute("aria-expanded", !isExpanded)
+      searchButton.setAttribute("aria-expanded", "false");
+    });
+
+    searchButton.addEventListener('click', (e) => {
+      const isExpanded = searchButton.getAttribute("aria-expanded") === "true";
+      searchButton.setAttribute("aria-expanded", !isExpanded)
+      navButton.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
+
+    <script type="module">
+      await import('/pagefind/pagefind-highlight.js');
+      new PagefindHighlight({ highlightParam: "highlight" });
+    </script>
+    <main tabindex="-1" id="main-content">
+      
+<article class="stack center" data-pagefind-body="">
+  <h1 id="foer-maeklare">För mäklare</h1>
+
+  [[toc]]
+
+  <!-- TODO: pagefind ignore toc -->
+  <div class="stack center">
+    <p>Behöver ni en mäklarbild eller annan information om föreningen? <a href="https://bredablickforvaltning.se/ekonomisk-forvaltning/for-maklare/">Fyll i Bredablicks formulär</a> eller kontakta dem direkt på <a href="mailto:maklare@bblick.se">maklare@bblick.se</a> eller <a href="tel:+460101775900">010-177 59 00</a>.</p>
+<p>Vänligen läs igenom <a href="/assets/Information-brf.-Urbilden-2023.pdf">vårt dokument med information om föreningen</a> innan ni kontaktar oss. Den mest förekommande frågan är avseende eventuella avgiftshöjningar: styrelsen kan endast ge besked kring detta när budgeten är fastställd i slutet på året.</p>
+<p>Har ni övriga frågor kan ni kontakta oss på <a href="mailto:info@urbilden.se">info@urbilden.se</a>. Kom ihåg att ni behöver bifoga ert förmedlingsuppdrag.</p>
+
+  </div>
+</article>
+    </main>
+    <footer>
+  <div class="center" style="--measure: 80ch">
+    
+    <nav class="foot-nav">
+  
+  <div class="nav">
+    
+    <div class="stack">
+        <h2 id="foervaltning-2">Förvaltning</h2>
+        <ul class="stack">
+          <li>
+            <a href="/felanmalan/">Felanmälan</a>
+          </li>
+          <li>
+            <a href="/ekonomi/">Ekonomi</a>
+          </li>
+          <li aria-current="page">
+            <a href="/maklare/">För mäklare</a>
+          </li>
+          <li>
+            <a href="/ovriga-leverantorer/">Övriga fastighetstjänster</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="boendeinformation-2">Boendeinformation</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om_renovering/">Om renovering</a>
+          </li>
+          <li>
+            <a href="/andrahandsuthyrning/">Andrahandsuthyrning</a>
+          </li>
+          <li>
+            <a href="/ordning-trivselregler/">Ordnings- och trivselregler</a>
+          </li>
+          <li>
+            <a href="/checklista_tilltrade_flytt/">Nyinflyttad?</a>
+          </li>
+          <li>
+            <a href="/nycklar/">Nycklar och taggar</a>
+          </li>
+          <li>
+            <a href="/sopsortering-container/">Sopsortering och container</a>
+          </li>
+          <li>
+            <a href="/medlemshandbok-om-foreningen/">Medlemshandbok</a>
+          </li>
+        </ul>
+    </div>
+    <div class="stack">
+        <h2 id="foereningen-2">Föreningen</h2>
+        <ul class="stack">
+          <li>
+            <a href="/om-oss/">Om oss</a>
+          </li>
+          <li>
+            <a href="/stadgar/">Stadgar</a>
+          </li>
+          <li>
+            <a href="/arsredovisningar/">Årsredovisningar</a>
+          </li>
+          <li>
+            <a href="/styrelsen-2/">Styrelsen</a>
+          </li>
+          <li>
+            <a href="/lokaler/">Lokaler</a>
+          </li>
+          <li>
+            <a href="/valberedning/">Valberedning</a>
+          </li>
+          <li>
+            <a href="/fastighetsagare-sofielund/">Fastighetsägare BID Sofielund</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+    <hr>
+    <!-- TODO: nav eller ej? -->
+    <ul class="cluster" role="list">
+      <li>
+        <a href="/kontakt">Kontakt</a>
+      </li>
+      <li>
+        <a href="/integritetspolicy">Integritetspolicy</a>
+      </li>
+      <li>
+        <a href="/kolofon">Kolofon</a>
+      </li>
+      <li>
+        <a href="/tillganglighet">Tillgänglighet</a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/groups/6181625231935233">Facebook-grupp</a>
+      </li>
+    </ul>
+    <p>
+       &copy; Urbilden 2025
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
