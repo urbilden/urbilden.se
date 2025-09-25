@@ -1,15 +1,2 @@
-# Misc
-*.log
-npm-debug.*
-*.scssc
-*.swp
-.DS_Store
-.sass-cache
-.env
-.cache
-
-# Node modules and output
 node_modules
 _site
-src/_includes/css
-
